@@ -8,6 +8,7 @@ resources:
 image: quay.io/vessl-ai/python:3.10-r18
 run:
   - echo "Hello VESSL!"
+  - command: python --version
 
   - command: git clone https://github.com/goranikin/snu_retrieval /workspace/specter2
   - command: ls -l /workspace/specter2/src/specter2
