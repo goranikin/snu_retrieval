@@ -38,7 +38,7 @@ class SPECTER2QueryAdapterFinetuner(Retrieval):
     def parameters(self):
         return self.model.parameters()
 
-    def _encode_text(self, input_ids, attention_mask, adapter_type="proximity"):
+    def encode_text(self, input_ids, attention_mask, adapter_type="proximity"):
         """
         adapter_type: query -> "adhoc_query", text -> "proximity"
         """
@@ -63,7 +63,7 @@ class SPECTER2QueryAdapterFinetuner(Retrieval):
                 max_length=512,
                 return_tensors="pt",
             )
-            return self._encode_text(
+            return self.encode_text(
                 tokens["input_ids"],
                 tokens["attention_mask"],
                 adapter_type="adhoc_query",
@@ -80,7 +80,7 @@ class SPECTER2QueryAdapterFinetuner(Retrieval):
                 max_length=512,
                 return_tensors="pt",
             )
-            return self._encode_text(
+            return self.encode_text(
                 tokens["input_ids"], tokens["attention_mask"], adapter_type="proximity"
             )
 
