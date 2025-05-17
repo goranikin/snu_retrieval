@@ -35,6 +35,9 @@ class SPECTER2QueryAdapterFinetuner(Retrieval):
 
         self.model.to(self.device)
 
+    def parameters(self):
+        return self.model.parameters()
+
     def _encode_text(self, input_ids, attention_mask, adapter_type="proximity"):
         """
         adapter_type: query -> "adhoc_query", text -> "proximity"
