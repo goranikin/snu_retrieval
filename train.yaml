@@ -1,22 +1,24 @@
 name: litsearch-specter2-finetune
 description: finetuning specter2 model with litsearch datasets.
 
-import:
-  /workspace/specter2:
-    volume: vessl-storage/SPECTER2
-  /workspace/specter2/output:
-    volume: vessl-storage/SPECTER2-output
-
 resources:
   cluster: snu-eng-dgx
   preset: a100-half
 
-image: quay.io/vessl-ai/torch:2.3.1-cuda12.1-r5
+image: quay.io/vessl-ai/python:3.10-r18
 run:
   - echo "Hello VESSL!"
+
+  - command: git clone https://github.com/goranikin/snu_retrieval /workspace/specter2
+  - command: ls -l /workspace/specter2/src/specter2
+
   - command: |2-
       pip install --upgrade uv
       uv sync
+      uv add faiss-gpu
     workdir: /workspace/specter2
+
+  - command: ls -l /workspace/specter2/src/specter2
+
   - command: uv run python train_and_save.py
     workdir: /workspace/specter2/src/specter2
