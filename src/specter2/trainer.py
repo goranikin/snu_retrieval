@@ -136,6 +136,6 @@ class SPECTER2Trainer:
 
     def save_model(self, output_dir):
         os.makedirs(output_dir, exist_ok=True)
-        self.custom_model.save_model(output_dir, "adhoc_query")
+        self.custom_model.save_model(output_dir)
         self.tokenizer.save_pretrained(output_dir)
         print(f"어댑터가 {output_dir}에 저장되었습니다.")

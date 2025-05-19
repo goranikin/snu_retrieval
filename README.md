@@ -16,3 +16,12 @@ This repository contains code and configuration for fine-tuning and evaluating t
 2. **Install dependencies** (preferably using [uv](https://github.com/astral-sh/uv)):
    ```bash
    uv sync
+
+---
+
+# LitSearch dataset augmentation process
+
+LitSearch datasets consist of the 597 queries for paper retrieval.  
+Finetuning a model with those few data has a limitation, such as an overfitting, a low quality and reliability of the model.
+
+As a result, there is a need to augment the data.

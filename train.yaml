@@ -22,4 +22,7 @@ run:
     workdir: /workspace/specter2/src/specter2
 
 export:
-  - /export/model: vessl-model://snu-eng-dgx-light/specter2
+  /export/model:
+    model:
+      organization_name: snu-eng-dgx-light
+      model_repository_name: specter2
