@@ -20,3 +20,7 @@ run:
 
   - command: uv run python train_and_save.py
     workdir: /workspace/specter2/src/specter2
+
+export:
+  - path: /workspae/model
+    destination: vessl-model://snu-eng-dgx-light/specter2

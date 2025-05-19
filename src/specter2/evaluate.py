@@ -11,6 +11,7 @@ from tqdm import tqdm
 import hydra
 from omegaconf import DictConfig
 
+
 def evaluate_model(model, test_data, query_data, k_values=[1, 5, 10, 20]):
     query_df = pd.DataFrame(
         {"query": query_data["query"], "corpusids": query_data["corpusids"]}
@@ -101,14 +102,12 @@ def main(cfg: DictConfig):
     random.shuffle(test_data)
 
     print(
-        f"Testing: {len(test_data)} samples " +
-        " ".join([f"({k}: {len(data_dict[k])})" for k in test_keys])
+        f"Testing: {len(test_data)} samples "
+        + " ".join([f"({k}: {len(data_dict[k])})" for k in test_keys])
     )
 
     # 저장된 모델/어댑터/토크나이저 불러오기
-    model = SPECTER2QueryAdapterFinetuner(
-        base_model_name=cfg.train.output_dir
-    )
+    model = SPECTER2QueryAdapterFinetuner(base_model_name=cfg.train.output_dir)
 
     print("Evaluating model on test set...")
 

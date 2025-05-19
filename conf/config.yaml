@@ -6,7 +6,7 @@ train:
   eval_steps: 50
   weight_decay: 0.01
   warmup_ratio: 0.1
-  output_dir: ./specter2_adhoc_query_finetuned
+  output_dir: /workspace/model
   datasets_dir: ./datasets
   train_key: train
   val_key: val

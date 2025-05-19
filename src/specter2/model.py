@@ -1,3 +1,5 @@
+import os
+
 import faiss
 import torch
 from adapters import AutoAdapterModel
@@ -167,3 +169,12 @@ class SPECTER2QueryAdapterFinetuner(Retrieval):
             results = [self.values[i] for i in indices]
 
         return results
+
+    def save_model(self, output_dir):
+        os.makedirs(output_dir, exist_ok=True)
+
+        self.model.save_adapter(output_dir, "adhoc_query")
+
+        self.tokenizer.save_pretrained(output_dir)
+
+        print(f"어댑터가 {output_dir}에 저장되었습니다.")
