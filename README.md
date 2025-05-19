@@ -21,7 +21,12 @@ This repository contains code and configuration for fine-tuning and evaluating t
 
 # LitSearch dataset augmentation process
 
-LitSearch datasets consist of the 597 queries for paper retrieval.  
-Finetuning a model with those few data has a limitation, such as an overfitting, a low quality and reliability of the model.
+The LitSearch dataset consists of 597 queries for paper retrieval.  
+Finetuning a model with such a small amount of data has limitations, such as overfitting and reduced quality and reliability.
 
-As a result, there is a need to augment the data.
+As a result, there is a need to augment the dataset.
+
+1. Query rewriting using citation sentences.
+2. Filtering based on word overlap and its quality.
+
+The steps above are performed by an LLM.

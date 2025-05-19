@@ -173,7 +173,7 @@ class SPECTER2QueryAdapterFinetuner(Retrieval):
     def save_model(self, output_dir):
         os.makedirs(output_dir, exist_ok=True)
 
-        self.model.save_adapter(output_dir, "adhoc_query")
+        self.model.save_model(output_dir, "adhoc_query")
 
         self.tokenizer.save_pretrained(output_dir)
 
