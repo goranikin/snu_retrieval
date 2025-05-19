@@ -30,3 +30,7 @@ As a result, there is a need to augment the dataset.
 2. Filtering based on word overlap and its quality.
 
 The steps above are performed by an LLM.
+
+3. Evaluating the performance of the previously generated queries.
+- Models: BM25, SPECTER2
+- Goal: To compare the retrieval performance with existing models. (Not too high or low.)

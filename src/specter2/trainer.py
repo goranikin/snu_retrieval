@@ -101,7 +101,7 @@ class SPECTER2Trainer:
             print(f"Epoch {epoch + 1}/{epochs} - Avg Loss: {avg_epoch_loss:.4f}")
 
         if val_data is None or epochs % eval_steps != 0:
-            self.save_adapter(output_dir)
+            self.save_model(output_dir)
 
         return self.model
 
