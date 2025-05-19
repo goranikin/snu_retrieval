@@ -92,7 +92,7 @@ class SPECTER2Trainer:
 
                     if val_loss < best_val_loss:
                         best_val_loss = val_loss
-                        self.save_adapter(output_dir)
+                        self.save_model(output_dir)
                         print(f"Model saved to {output_dir} (val_loss: {val_loss:.4f})")
 
                     self.model.train()
@@ -134,8 +134,8 @@ class SPECTER2Trainer:
 
         return total_loss / len(val_loader)
 
-    def save_adapter(self, output_dir):
+    def save_model(self, output_dir):
         os.makedirs(output_dir, exist_ok=True)
-        self.custom_model.save_adapter(output_dir, "adhoc_query")
+        self.custom_model.save_model(output_dir, "adhoc_query")
         self.tokenizer.save_pretrained(output_dir)
         print(f"어댑터가 {output_dir}에 저장되었습니다.")
