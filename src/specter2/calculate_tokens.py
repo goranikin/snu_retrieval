@@ -7,17 +7,6 @@ from transformers import AutoTokenizer
 def analyze_token_lengths(
     data, tokenizer_name="allenai/specter2_base", sample_size=None
 ):
-    """
-    데이터셋의 title + abstract 토큰 길이를 분석합니다.
-
-    Args:
-        data: 논문 데이터 리스트 (각 항목은 'title'과 'text' 또는 'abstract' 키를 가져야 함)
-        tokenizer_name: 사용할 토크나이저 이름
-        sample_size: 분석할 샘플 수 (None이면 전체 데이터)
-
-    Returns:
-        토큰 길이 통계 및 시각화
-    """
     tokenizer = AutoTokenizer.from_pretrained(tokenizer_name)
 
     # 샘플링 (필요한 경우)

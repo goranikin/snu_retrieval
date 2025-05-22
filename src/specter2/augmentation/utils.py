@@ -1,5 +1,7 @@
 import json
 
+import nltk
+
 
 def find_citation_paper_info(
     source_corpus_id: int,
@@ -41,6 +43,18 @@ def find_citation_paper_info(
             )
 
     return result
+
+
+def extract_citation_context(text, citation):
+    sentences = nltk.sent_tokenize(text)
+
+    for idx, sent in enumerate(sentences):
+        if citation in sent:
+            prev_sent = sentences[idx - 1] if idx > 0 else None
+            curr_sent = sent
+            next_sent = sentences[idx + 1] if idx < len(sentences) - 1 else None
+            return prev_sent, curr_sent, next_sent
+    return None, None, None
 
 
 # def extract_content_with_corpusid(full_corpus_data: list[dict], corpus_ids: set[int]):
