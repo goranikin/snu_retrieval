@@ -14,23 +14,29 @@ This repository contains code and configuration for fine-tuning and evaluating t
 
 1. **Clone the repository** and set up a Python 3.12+ environment.
 2. **Install dependencies** (preferably using [uv](https://github.com/astral-sh/uv)):
-   ```bash
-   uv sync
+```bash
+uv sync
+```
 
 ---
 
 # LitSearch dataset augmentation process
 
 The LitSearch dataset consists of 597 queries for paper retrieval.  
-Finetuning a model with such a small amount of data has limitations, such as overfitting and reduced quality and reliability.
+Fine-tuning a model with such a small dataset has limitations, like overfitting and reduced quality and reliability of model performance.
 
-As a result, there is a need to augment the dataset.
+Therefore, it is necessary to augment the dataset.
+
+**Dataset Augmentation Process**
 
 1. Query rewriting using citation sentences.
-2. Filtering based on word overlap and its quality.
+2. Filtering based on word overlap and quality.
 
 The steps above are performed by an LLM.
 
-3. Evaluating the performance of the previously generated queries.
+3. Evaluating the performance of the newly generated queries.
 - Models: BM25, SPECTER2
 - Goal: To compare the retrieval performance with existing models. (Not too high or low.)
+
+
+## trial

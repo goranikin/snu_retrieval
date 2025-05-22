@@ -1,0 +1,28 @@
+name: litsearch-specter2-finetune
+description: finetuning specter2 model with litsearch datasets.
+
+resources:
+  cluster: snu-eng-dgx
+  preset: a100-half
+
+image: quay.io/vessl-ai/python:3.10-r18
+run:
+  - command: git clone https://github.com/goranikin/snu_retrieval /workspace/specter2
+  - command: ls -l /workspace/specter2/src/specter2
+
+  - command: |2-
+      pip install --upgrade uv
+      uv sync
+      uv add faiss-gpu
+    workdir: /workspace/specter2
+
+  - command: ls -l /workspace/specter2/src/specter2
+
+  - command: uv run python train_and_save.py
+    workdir: /workspace/specter2/src/specter2
+
+export:
+  /export/model:
+    model:
+      organization_name: snu-eng-dgx-light
+      model_repository_name: specter2
