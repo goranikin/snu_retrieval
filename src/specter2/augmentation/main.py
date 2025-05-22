@@ -1,7 +1,8 @@
 import json
 
+from utils import find_citation_paper_info
+
 from datasets import load_dataset
-from specter2.augmentation.utils import find_citation_paper_info
 
 if __name__ == "__main__":
     query_data = load_dataset("princeton-nlp/LitSearch", "query", split="full")

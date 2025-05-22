@@ -2583,6 +2583,7 @@ dependencies = [
     { name = "scikit-learn" },
     { name = "torch" },
     { name = "transformers" },
+    { name = "vessl" },
 ]
 
 [package.dev-dependencies]
@@ -2605,6 +2606,7 @@ requires-dist = [
     { name = "scikit-learn", specifier = ">=1.6.1,<2.0.0" },
     { name = "torch", specifier = ">=2.7.0,<3.0.0" },
     { name = "transformers", specifier = ">=4.48.3,<5.0.0" },
+    { name = "vessl", specifier = ">=0.1.197" },
 ]
 
 [package.metadata.requires-dev]
