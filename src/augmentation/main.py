@@ -1,10 +1,24 @@
+import argparse
 import json
+import os
 
-from utils import find_citation_paper_info
+from tqdm import tqdm
+from utils import extract_citation_context, find_citation_paper_info
 
 from datasets import load_dataset
 
 if __name__ == "__main__":
+    parser = argparse.ArgumentParser()
+    parser.add_argument(
+        "--output_path",
+        type=str,
+        default="./citation_info.json",
+        help="Output file path for citation info JSON",
+    )
+    args = parser.parse_args()
+
+    os.makedirs(os.path.dirname(args.output_path), exist_ok=True)
+
     query_data = load_dataset("princeton-nlp/LitSearch", "query", split="full")
     corpus_clean_data = load_dataset(
         "princeton-nlp/LitSearch", "corpus_clean", split="full"
@@ -16,7 +30,7 @@ if __name__ == "__main__":
     result_list = []
 
     # 1007 makes 597 data.
-    for i in range(1007):
+    for i in tqdm(range(1007), desc="Processing citation information"):
         source_corpus_id = corpus_clean_data[i]["corpusid"]
         citation_corpus_ids = corpus_clean_data[i]["citations"]
 
@@ -39,5 +53,14 @@ if __name__ == "__main__":
             real_result_list.append(result[0])
             not_null += 1
 
-    with open("/output/citation_info.json", "w", encoding="utf-8") as f:
+    for result in tqdm(real_result_list, desc="Extracting citations context"):
+        paper = corpus_s2orc_data[result["index"]]
+        citation = paper["content"]["text"][result["start"] : result["end"]]
+        snippet = paper["content"]["text"][
+            result["start"] - 1000 : result["end"] + 1000
+        ]
+        prev, curr, next_ = extract_citation_context(snippet, citation)
+        result["prev"], result["curr"], result["next"] = prev, curr, next_
+
+    with open(args.output_path, "w", encoding="utf-8") as f:
         json.dump(real_result_list, f, ensure_ascii=False, indent=2)

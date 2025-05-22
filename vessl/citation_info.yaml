@@ -14,8 +14,8 @@ run:
       uv sync
     workdir: /workspace/specter2
 
-  - command: uv run python main.py
-    workdir: /workspace/specter2/src/specter2/augmentation
+  - command: uv run python main.py --output_path /output/citation_info.json
+    workdir: /workspace/specter2/src/augmentation
 
 export:
   /output: volume://vessl-storage/
