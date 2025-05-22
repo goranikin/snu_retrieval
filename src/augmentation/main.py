@@ -2,10 +2,9 @@ import argparse
 import json
 import os
 
+from datasets import load_dataset
 from tqdm import tqdm
 from utils import extract_citation_context, find_citation_paper_info
-
-from datasets import load_dataset
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
@@ -19,7 +18,6 @@ if __name__ == "__main__":
 
     os.makedirs(os.path.dirname(args.output_path), exist_ok=True)
 
-    query_data = load_dataset("princeton-nlp/LitSearch", "query", split="full")
     corpus_clean_data = load_dataset(
         "princeton-nlp/LitSearch", "corpus_clean", split="full"
     )
@@ -30,7 +28,7 @@ if __name__ == "__main__":
     result_list = []
 
     # 1007 makes 597 data.
-    for i in tqdm(range(1007), desc="Processing citation information"):
+    for i in tqdm(range(1200), desc="Processing citation information"):
         source_corpus_id = corpus_clean_data[i]["corpusid"]
         citation_corpus_ids = corpus_clean_data[i]["citations"]
 

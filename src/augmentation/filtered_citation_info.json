@@ -11,17 +11,6 @@
     "next": "To train our model, we use a combination of L 2 loss, image perceptual loss L IP [20,61], video perceptual loss L VP by using the I3D network [6] as feature extractor, and adversarial loss L Adv with StyleGAN architecture [21]."
   },
   {
-    "index": 6,
-    "source_corpus_id": 223956716,
-    "ref_id": "b46",
-    "citation_corpus_id": 6212000,
-    "start": 1947,
-    "end": 1966,
-    "prev": null,
-    "curr": null,
-    "next": null
-  },
-  {
     "index": 8,
     "source_corpus_id": 212996548,
     "ref_id": "b9",
@@ -75,39 +64,6 @@
     "prev": "In particular, bounding the smallest eigenvalue of the NTK Gram matrix is a staple technique for establishing convergence guarantees for the optimization (Du et al., 2019a,b;Oymak & Soltanolkotabi, 2020).",
     "curr": "Furthermore, the full spectrum of the NTK Gram matrix governs the dynamics of the empirical risk (Arora et al., 2019b), and the eigenvalues of the associated integral operator characterize the dynamics of the generalization error outside the training set (Bowman & Montufar, 2022;Bowman & Montúfar, 2022).",
     "next": "Moreover, the decay rate of the generalization error for Gaussian process regression using the NTK can be characterized by the decay rate of the spectrum (Caponnetto & De Vito, 2007;Cui et al., 2021;Jin et al., 2022)."
-  },
-  {
-    "index": 16,
-    "source_corpus_id": 162184036,
-    "ref_id": "b15",
-    "citation_corpus_id": 1957433,
-    "start": 17859,
-    "end": 17884,
-    "prev": null,
-    "curr": null,
-    "next": null
-  },
-  {
-    "index": 17,
-    "source_corpus_id": 264555396,
-    "ref_id": "b17",
-    "citation_corpus_id": 28202810,
-    "start": 6218,
-    "end": 6241,
-    "prev": "to the RL algorithm.Furthermore, it is robust in many challenging environment specifications, including large 3D navigation maps, procedurally generated environments, sparse reward tasks, pixel-based observations and continuous action spaces.Videos of the trained agents and summarized findings can be found on our supplementary webpage1 .",
-    "curr": "RELATED WORK\n\nExploration in RL Exploration is a central challenge in RL.Classical exploration strategies explore in an aleatoric fashion.ϵ-greedy (Sutton & Barto, 2018) forces the agent to sample random actions during training for the sake of exploration.Adding random structured noise in the action space (Lillicrap et al., 2015;Fujimoto et al., 2018) can enable exploration in continuous spaces.Adding random noise in the parameter space has also been proposed to improve exploration (Fortunato et al., 2017).Maximum entropy RL provides a framework to find optimal policies that are as diverse as possible, and hence better explore the space of solutions (Haarnoja et al., 2018;Levine et al., 2020).For hard-exploration tasks, structured exploration has been studied through the lens of hierarchical RL (Gehring et al., 2021;Eysenbach et al., 2018).In MDPs with sparse reward distributions, exploration bonuses (i.e.intrinsic rewards) provide proxy objectives to the agents that can induce state-covering behaviors, hence allowing agents to find the sparse rewards.Count-based methods (Auer, 2002) derive an exploration bonus from state visitation frequencies.Importantly, the inverse counts of a given state measure its novelty and hence provide a suitable objective to train exploratory agents.Furthermore, count-based rewards implicitly define an efficient annealing exploratory schedule, since novelty globally decays as the agent visits all the possible states in the MDP.These properties make count-based exploration a very appealing technique to enable efficient exploration.However, they don't scale well to high-dimensional state spaces (Bellemare et al., 2016).Pseudo-",
-    "next": null
-  },
-  {
-    "index": 18,
-    "source_corpus_id": 251341969,
-    "ref_id": "b15",
-    "citation_corpus_id": 208857488,
-    "start": 7437,
-    "end": 7455,
-    "prev": null,
-    "curr": null,
-    "next": null
   },
   {
     "index": 23,
@@ -330,17 +286,6 @@
     "next": "The ST language model increases the termination probability of each sequence monotonically to 1, but this parametrization is not appropriate for learning our natural language."
   },
   {
-    "index": 51,
-    "source_corpus_id": 246240237,
-    "ref_id": "b0",
-    "citation_corpus_id": 53022741,
-    "start": 13236,
-    "end": 13253,
-    "prev": null,
-    "curr": null,
-    "next": null
-  },
-  {
     "index": 53,
     "source_corpus_id": 202660778,
     "ref_id": "b10",
@@ -385,17 +330,6 @@
     "next": "In this paper, we suggest that deficiencies in ERM can be flexibly addressed via a unified framework, tilted empirical risk minimization (TERM)."
   },
   {
-    "index": 60,
-    "source_corpus_id": 245828046,
-    "ref_id": "b21",
-    "citation_corpus_id": 6212000,
-    "start": 24704,
-    "end": 24723,
-    "prev": null,
-    "curr": null,
-    "next": null
-  },
-  {
     "index": 61,
     "source_corpus_id": 211132990,
     "ref_id": "b32",
@@ -405,17 +339,6 @@
     "prev": "A further study confirms that deep ensembles generally achieves the best performance on out-of-distribution uncertainty benchmarks (Ovadia et al., 2019;Gustafsson et al., 2019), compared to other methods such as MC-dropout (Gal & Ghahramani, 2015).",
     "curr": "In other applications such as model-based reinforcement learning (Deisenroth & Rasmussen, 2011;Wang et al., 2019), ensembles of neural networks can be used to estimate model uncertainty, leading to better overall performance (Kurutach et al., 2018).",
     "next": "Despite their success on benchmarks, ensembles are limited in practice due to their expensive computational and memory costs, which increase linearly with the ensemble size in both training and testing."
-  },
-  {
-    "index": 62,
-    "source_corpus_id": 213938729,
-    "ref_id": "b10",
-    "citation_corpus_id": 6706414,
-    "start": 6413,
-    "end": 6438,
-    "prev": null,
-    "curr": null,
-    "next": null
   },
   {
     "index": 64,
@@ -482,17 +405,6 @@
     "prev": "We also show which hyperparameter choices had a significant effect on parsing accuracy, allowing us to achieve large gains over other graph-based approaches.",
     "curr": "INTRODUCTION\n\nDependency parsers-which annotate sentences in a way designed to be easy for humans and computers alike to understand-have been found to be extremely useful for a sizable number of NLP tasks, especially those involving natural language understanding in some way (Bowman et al., 2016;Angeli et al., 2015;Levy & Goldberg, 2014;Toutanova et al., 2016;Parikh et al., 2015).",
     "next": "However, frequent incorrect parses can severely inhibit final performance, so improving the quality of dependency parsers is needed for the improvement and success of these downstream tasks."
-  },
-  {
-    "index": 78,
-    "source_corpus_id": 250451381,
-    "ref_id": "b37",
-    "citation_corpus_id": 216562627,
-    "start": 6213,
-    "end": 6233,
-    "prev": null,
-    "curr": null,
-    "next": null
   },
   {
     "index": 80,
@@ -704,28 +616,6 @@
     "next": "In Table 2, we show that one can close most of the gap with standard ResNets by simply adopting the modification in equation 6 without using BN layers."
   },
   {
-    "index": 105,
-    "source_corpus_id": 263909429,
-    "ref_id": "b42",
-    "citation_corpus_id": 257279944,
-    "start": 2561,
-    "end": 2581,
-    "prev": null,
-    "curr": null,
-    "next": null
-  },
-  {
-    "index": 106,
-    "source_corpus_id": 210920362,
-    "ref_id": "b43",
-    "citation_corpus_id": 2187805,
-    "start": 34075,
-    "end": 34094,
-    "prev": null,
-    "curr": null,
-    "next": null
-  },
-  {
     "index": 107,
     "source_corpus_id": 264555202,
     "ref_id": "b28",
@@ -814,17 +704,6 @@
     "next": "Recently, researchers have noticed that such robust classifiers obtained by AT are able to extract features that are perceptually aligned with humans (Engstrom et al., 2019)."
   },
   {
-    "index": 118,
-    "source_corpus_id": 204734206,
-    "ref_id": "b10",
-    "citation_corpus_id": 3333039,
-    "start": 3038,
-    "end": 3059,
-    "prev": null,
-    "curr": null,
-    "next": null
-  },
-  {
     "index": 119,
     "source_corpus_id": 256868547,
     "ref_id": "b13",
@@ -911,17 +790,6 @@
     "prev": "INTRODUCTION\n\nThe rapid development of neural networks opens the path towards the ambitious goal of universal translation that allows converting information between any languages regardless of data modalities (text, audio or video) (Zhang, 2022).",
     "curr": "While the translation for spoken languages (in text and speech) has gained wide attention (Aharoni et al., 2019;Inaguma et al., 2019;Jia et al., 2019), the study of sign language translation (SLT) -a task translating from sign language videos to spoken language texts -still lags behind despite its significance in facilitating the communication between Deaf communities and spoken language communities (Camgoz et al., 2018;.",
     "next": "SLT represents unique challenges: it demands the capability of video understanding and sequence generation."
-  },
-  {
-    "index": 132,
-    "source_corpus_id": 246867279,
-    "ref_id": "b11",
-    "citation_corpus_id": 219981345,
-    "start": 4505,
-    "end": 4524,
-    "prev": null,
-    "curr": null,
-    "next": null
   },
   {
     "index": 133,
@@ -1056,17 +924,6 @@
     "next": "Inspired by these works, we compute the generalization gaps (i.e., the differences between empirical and validation pre-training losses) on frequent and rare classes for the step-imbalance CIFAR-10 datasets (where 5 classes are frequent class with 5000 examples per class and the rest are rare with 50 examples per class)."
   },
   {
-    "index": 155,
-    "source_corpus_id": 238419007,
-    "ref_id": "b38",
-    "citation_corpus_id": 3488815,
-    "start": 48219,
-    "end": 48238,
-    "prev": null,
-    "curr": null,
-    "next": null
-  },
-  {
     "index": 157,
     "source_corpus_id": 222125116,
     "ref_id": "b9",
@@ -1122,17 +979,6 @@
     "next": "Combining the new data D 1 with the seed data D 0 yields the MathCodeInstruct dataset D = {D 0 , D 1 }.We fine-tune the base Llama-2 (Touvron et al., 2023) and CodeLlama (Rozière et al., 2023) models using MathCodeInstruct to derive our final MathCoder models.For clarity, we refer to the supervised fine-tuning of base Llama-2 as \"MathCoder-L\" and that of CodeLlama as \"MathCoder-CL\", as shown in Fig."
   },
   {
-    "index": 164,
-    "source_corpus_id": 33513311,
-    "ref_id": "b13",
-    "citation_corpus_id": 252796,
-    "start": 4552,
-    "end": 4572,
-    "prev": null,
-    "curr": null,
-    "next": null
-  },
-  {
     "index": 165,
     "source_corpus_id": 52978527,
     "ref_id": "b53",
@@ -1186,17 +1032,6 @@
     "prev": "Third, we demonstrate that on synthetic data, DSMN achieves superior performance for answering questions that require visual thinking.",
     "curr": "Related Work\n\nNatural language datasets for QA: Several natural language QA datasets have been proposed to test AI systems on various reasoning abilities (Levesque et al., 2011;Richardson et al., 2013).",
     "next": "Our work differs from them in two key aspects: first, we use synthetic data instead of natural data; and second, we specialize in geometrical reasoning instead of general language understanding."
-  },
-  {
-    "index": 173,
-    "source_corpus_id": 59600025,
-    "ref_id": "b28",
-    "citation_corpus_id": 1957433,
-    "start": 1226,
-    "end": 1250,
-    "prev": null,
-    "curr": null,
-    "next": null
   },
   {
     "index": 174,
@@ -1342,17 +1177,6 @@
     "next": "Thus, to understand if transformers implement tree-structured computations, the approach we take is based on directly approximating them with a separate, tree-structured computation."
   },
   {
-    "index": 199,
-    "source_corpus_id": 1706438,
-    "ref_id": "b3",
-    "citation_corpus_id": 8712237,
-    "start": 1373,
-    "end": 1392,
-    "prev": null,
-    "curr": null,
-    "next": null
-  },
-  {
     "index": 200,
     "source_corpus_id": 229923250,
     "ref_id": "b1",
@@ -1406,17 +1230,6 @@
     "prev": "It does not provide a consistent ranking of different ensembling techniques.",
     "curr": "(\nSrivastava et al., 2014;Gal & Ghahramani, 2016), variational inference(Blundell et al., 2015;  Kingma et al., 2015; Louizos & Welling, 2017), batch normalization(Ioffe & Szegedy, 2015; Teye  et al., 2018;Atanov et al., 2019), Laplace approximation(Ritter et al., 2018)  and many more.Snapshot-based methods aim to obtain sets of weights for deep learning models and then to average the predictions across these weights.",
     "next": "The weights can be trained independently (e.g."
-  },
-  {
-    "index": 206,
-    "source_corpus_id": 203737303,
-    "ref_id": "b24",
-    "citation_corpus_id": 6212000,
-    "start": 2106,
-    "end": 2125,
-    "prev": null,
-    "curr": null,
-    "next": null
   },
   {
     "index": 207,
@@ -1562,17 +1375,6 @@
     "next": "While some progress has been made regarding the theoretical understanding of these deep models (Arora et al., 2018;Bartlett et al., 2019;Neyshabur et al., 2015;Dziugaite & Roy, 2017), the considered settings are unfortunately often very restrictive and the insights made are only qualitative or very loose."
   },
   {
-    "index": 230,
-    "source_corpus_id": 220961494,
-    "ref_id": "b68",
-    "citation_corpus_id": 24069181,
-    "start": 5767,
-    "end": 5790,
-    "prev": null,
-    "curr": null,
-    "next": null
-  },
-  {
     "index": 231,
     "source_corpus_id": 29154793,
     "ref_id": "b12",
@@ -1648,17 +1450,6 @@
     "prev": "Since there is little prior warning of phase transitions, they pose a challenge to monitoring the safety of ML systems.",
     "curr": "Spurred by this challenge, we propose an anomaly detection task (Hendrycks & Gimpel, 2017;Tack et al., 2020): Can we detect when the true reward starts to drop, while maintaining a low false positive rate in benign cases?",
     "next": "We instantiate our proposed task, POLYNOMALY, for the traffic and COVID environments (Section 5)."
-  },
-  {
-    "index": 244,
-    "source_corpus_id": 257078985,
-    "ref_id": "b10",
-    "citation_corpus_id": 233024779,
-    "start": 28797,
-    "end": 28816,
-    "prev": null,
-    "curr": null,
-    "next": null
   },
   {
     "index": 245,
@@ -1771,17 +1562,6 @@
     "next": "However, this decoder choice poses a problem of slow inference because DPM forward pass scheme is iterative and to obtain high-quality results it is typically necessary to run it for hundreds of iterations (Ho et al., 2020;Nichol & Dhariwal, 2021)."
   },
   {
-    "index": 266,
-    "source_corpus_id": 60441438,
-    "ref_id": "b31",
-    "citation_corpus_id": 16326763,
-    "start": 3399,
-    "end": 3422,
-    "prev": null,
-    "curr": null,
-    "next": null
-  },
-  {
     "index": 268,
     "source_corpus_id": 264490454,
     "ref_id": "b9",
@@ -1857,17 +1637,6 @@
     "prev": "A related hyperparameter is momentum; typically fixed to a reasonable value such as 0.9, careful tuning can also give significant performance gains (Sutskever et al., 2013).",
     "curr": "While optimizers such as Adam (Kingma & Ba, 2015) are often described as adapting coordinate-specific learning rates, in fact they also have global learning rate and momentum hyperparameters analogously to SGD, and tuning at least the learning rate can be important to good performance.",
     "next": "In light of this, it is not surprising that there have been many attempts to adapt learning rates, either online during optimization (Schraudolph, 1999;Schaul et al., 2013), or offline by fitting a learning rate schedule (Maclaurin et al., 2015)."
-  },
-  {
-    "index": 276,
-    "source_corpus_id": 263831046,
-    "ref_id": "b14",
-    "citation_corpus_id": 53802740,
-    "start": 19203,
-    "end": 19224,
-    "prev": "icy to enforce fairness within the optimization objective.",
-    "curr": "5 Making Large-Scale Problem Tractable: Amortized Policy  7) and Update θ i in Θ; end\n\nIn practice, managing a city's extensive traffic network is a challenging large-scale problem due to its sheer size.To tackle this, we employ a divide-and-conquer approach, breaking the problem down into manageable subproblems.For instance, we segment the vast network into smaller, more manageable subgraphs, each representing a tractable subproblem.While this strategy makes the overall problem more manageable, it raises a crucial question: How can we utilize optimal policies from previous subproblems to streamline the optimization of new ones?To address this, we introduce the Amortized Network Interventions (ANI) framework.Amortized Intervention In the previous section, our assumption was that each agent operates solely with local information, without utilizing global data.In this section, our objective is to learn a shared amortized policy (Gordon et al., 2019) that can be applied across different regions with distinct dynamics.We hypothesize the existence of collective behavior among these various local temporal dynamic systems.Given a sequence of local policies {π i } M i=1 addressing M distinct sub-problems, our goal is to create an amortized policy π amo .This policy should extract invariant representations and enable the adoption of similar policy structures among similar temporal dynamic systems.Permutation Equivalent Property Inspired from policy similarity embeddings (PSM) (Agarwal et al., 2021) and the policy permutation invariant property in SensoryNeuron (Tang & Ha, 2021), we devise an agent that can extract permutation equivalent embeddings and is policy permutation equivalent to the latent state space h t .Since each dimension of h t corresponds to one node in the excitatory point process, the permutation equivalent property along the node dimension characterizes the collective behavior within complex dynamic systems.We present",
-    "next": null
   },
   {
     "index": 277,
@@ -1956,17 +1725,6 @@
     "prev": "Furthermore, NODE allows constructing multi-layer architectures, which resembles \"deep\" GBDT that is trained end-to-end, which was never proposed before.",
     "curr": "Besides the usage of oblivious decision tables, another important design choice is the recent entmax transformation (Peters et al., 2019), which effectively performs a \"soft\" splitting feature choice in decision trees inside the NODE architecture.",
     "next": "As discussed in the following sections, these design choices are critical to obtain state-of-the-art performance."
-  },
-  {
-    "index": 288,
-    "source_corpus_id": 227337121,
-    "ref_id": "b6",
-    "citation_corpus_id": 49416020,
-    "start": 7541,
-    "end": 7561,
-    "prev": null,
-    "curr": null,
-    "next": null
   },
   {
     "index": 289,
@@ -2090,17 +1848,6 @@
     "next": "Initial attempts towards 3D point-cloud pre-training primarily leverage contrastive learning (Chopra et al., 2005), especially when the point clouds are collected from indoor scenes (Xie et al., 2020;Rao et al., 2021;Liu et al., 2021a;Zhang et al., 2021;Chen et al., 2022).However, the broad application of contrastive learning-based pre-training techniques is impeded by the requirement of large batch sizes and the necessity to carefully define positive and negative pairs.In contrast to natural language processing and 2D vision, pre-training on 3D point clouds presents two unique challenges.First, the data is extremely scarce, even without annotations.Public 3D datasets are orders of magnitude smaller than 2D image datasets.Second, the lack of data annotations necessitates 3D pre-training methods to adhere to t"
   },
   {
-    "index": 309,
-    "source_corpus_id": 263153393,
-    "ref_id": "b44",
-    "citation_corpus_id": 252715594,
-    "start": 1751,
-    "end": 1773,
-    "prev": null,
-    "curr": null,
-    "next": null
-  },
-  {
     "index": 310,
     "source_corpus_id": 258048805,
     "ref_id": "b16",
@@ -2121,17 +1868,6 @@
     "prev": "For example, syntactic effects evolve at the timescale of words, whereas semantics, emotions, and narratives can evolve at much longer timescales of tens to hundreds or thousands of words.",
     "curr": "The importance of long timescale information is evident in results showing that neural networks have outperformed classical n-gram models on many language modeling benchmarks (Melis et al., 2019;Krause et al., 2019;Dai et al., 2019).",
     "next": "This difference is attributed to these networks' ability to capture long timescale dependencies that that are impossible for n-gram models."
-  },
-  {
-    "index": 312,
-    "source_corpus_id": 259203153,
-    "ref_id": "b42",
-    "citation_corpus_id": 211678094,
-    "start": 2479,
-    "end": 2498,
-    "prev": null,
-    "curr": null,
-    "next": null
   },
   {
     "index": 313,
@@ -2475,17 +2211,6 @@
     "next": "Recently a large body of studies is focusing on exploring the underlying relationships between these two methods, for instance, Müller et al."
   },
   {
-    "index": 361,
-    "source_corpus_id": 227254803,
-    "ref_id": "b33",
-    "citation_corpus_id": 3502463,
-    "start": 4467,
-    "end": 4489,
-    "prev": null,
-    "curr": null,
-    "next": null
-  },
-  {
     "index": 362,
     "source_corpus_id": 208857488,
     "ref_id": "b45",
@@ -2572,17 +2297,6 @@
     "prev": "On the other hand, some rather disconnected findings point to an important role of object textures for CNN object recognition.",
     "curr": "CNNs can still classify texturised images perfectly well, even if the global shape structure is completely destroyed Brendel & Bethge, 2019).",
     "next": "Conversely, standard CNNs are bad at recognising object sketches where object shapes are preserved yet all texture cues are missing (Ballester & de Araújo, 2016)."
-  },
-  {
-    "index": 376,
-    "source_corpus_id": 252816031,
-    "ref_id": "b28",
-    "citation_corpus_id": 240288835,
-    "start": 7385,
-    "end": 7403,
-    "prev": null,
-    "curr": null,
-    "next": null
   },
   {
     "index": 379,
@@ -2704,17 +2418,6 @@
     "prev": "Self-play (Samuel, 1967;Tesauro, 1995) has not only demonstrated the ability to abstract highdimensional state spaces as typified by AlphaGo (Silver et al., 2017), but also improved exploration coverage in partially observable environments.",
     "curr": "Communication (Sukhbaatar et al., 2016;Singh et al., 2019) exchanges their internal representations such as explored observation and hidden state in RNNs.",
     "next": "Evolutionary learning is expected to be a general framework for creating superhuman AIs as such learning can generate a high-level abstract representation without any bias in supervision."
-  },
-  {
-    "index": 393,
-    "source_corpus_id": 257279944,
-    "ref_id": "b4",
-    "citation_corpus_id": 52967399,
-    "start": 2120,
-    "end": 2140,
-    "prev": null,
-    "curr": null,
-    "next": null
   },
   {
     "index": 394,
@@ -2926,17 +2629,6 @@
     "next": "Neural theorem proving is a rapidly developing area which aims to apply techniques from deep learning to interactive theorem proving."
   },
   {
-    "index": 424,
-    "source_corpus_id": 246294898,
-    "ref_id": "b35",
-    "citation_corpus_id": 220249726,
-    "start": 3316,
-    "end": 3334,
-    "prev": null,
-    "curr": null,
-    "next": null
-  },
-  {
     "index": 425,
     "source_corpus_id": 259187750,
     "ref_id": "b11",
@@ -2979,17 +2671,6 @@
     "prev": "We conduct experiments across a diverse set of eight NLP tasks using models of different scales (T5-{base, large, XL}) and find that SESoM consistently outperforms the existing models of the same as well as larger parametric scale by a large margin.",
     "curr": "INTRODUCTION\n\nRecent few years have witnessed the great success of large pre-trained language models (PLM) (Kenton & Toutanova, 2019;Liu et al., 2019;Radford et al., 2019;Raffel et al., 2020;Brown et al., 2020).",
     "next": "The size of pre-trained models which can easily go to billions of parameters (Brown et al., 2020;Raffel et al., 2020), however, hinder their real-world deployments and applications."
-  },
-  {
-    "index": 436,
-    "source_corpus_id": 253237991,
-    "ref_id": "b5",
-    "citation_corpus_id": 239998683,
-    "start": 3426,
-    "end": 3445,
-    "prev": null,
-    "curr": null,
-    "next": null
   },
   {
     "index": 437,
@@ -3045,17 +2726,6 @@
     "prev": "In Optimal Brain Surgeon (Hassibi et al., 1993), the saliency for each parameter was computed using the inverse Hessian matrix, and the low-saliency weights are pruned and all other weights in the network are updated using the second-order information.",
     "curr": "More recently, magnitude-based weight pruning methods have become popular techniques for network pruning (Han et al., 2015b,a;See et al., 2016;Narang et al., 2017).",
     "next": "Magnitude-based weight pruning techniques are computationally efficient, scaling to large networks and datasets."
-  },
-  {
-    "index": 445,
-    "source_corpus_id": 3340951,
-    "ref_id": "b14",
-    "citation_corpus_id": 2134321,
-    "start": 7814,
-    "end": 7831,
-    "prev": null,
-    "curr": null,
-    "next": null
   },
   {
     "index": 448,
@@ -3157,17 +2827,6 @@
     "next": "One reason for non-convergence is cycling around an optimal solution (Mertikopoulos et al., 2018;, or even slow outward spiraling (Bailey & Piliouras, 2018)."
   },
   {
-    "index": 462,
-    "source_corpus_id": 1803861,
-    "ref_id": "b4",
-    "citation_corpus_id": 3130692,
-    "start": 36851,
-    "end": 36872,
-    "prev": null,
-    "curr": null,
-    "next": null
-  },
-  {
     "index": 463,
     "source_corpus_id": 231719730,
     "ref_id": "b5",
@@ -3221,17 +2880,6 @@
     "prev": "Such knowledge can be implicitly encoded or explicitly stored in structured knowledge graphs (KGs).",
     "curr": "Large pre-trained language models (Devlin et al., 2018;Radford et al., 2018;Brown et al., 2020) are found to be effective in learning broad and rich implicit knowledge (Petroni et al., 2019;Bosselut et al., 2019;Talmor et al., 2020) and thus demonstrate much success for QA tasks.",
     "next": "Nevertheless, pretrained LMs struggle a lot with structured reasoning such as handling negation (Ribeiro et al., 2020;Yasunaga et al., 2021)."
-  },
-  {
-    "index": 474,
-    "source_corpus_id": 264306063,
-    "ref_id": "b28",
-    "citation_corpus_id": 1957433,
-    "start": 7123,
-    "end": 7147,
-    "prev": "In summary, our primary contributions are a) the emulated fine-tuning framework; b) clear experimental justification for the claim that scaling pre-training leads to improved factual knowledge while scaling finetuning leads to improved task adherence; and c) the technique of model up-scaling, which enables a small fine-tuned model and large base model to approximate the compute-intensive result of fine-tuning a large base model.",
-    "curr": "Related Work\n\nThe benefits of unsupervised pre-training in neural networks was first identified in deep belief networks (Hinton et al., 2006) and stacked autoencoders (Bengio et al., 2007), with early analyses noting persistent effects of pre-training even when fine-tuning data is not limited (Erhan et al., 2010).In natural language processing, pre-trained representations of individual words (Mikolov et al., 2013;Pennington et al., 2014) or entire passages (Devlin et al., 2019;Peters et al., 2018) demonstrated the ability for task-agnostic pre-training to learn representations useful for a wide variety of downstream linguistic tasks such as question-answering, natural language inference, and translation (Devlin et al., 2019;Raffel et al., 2020).The transformer architecture (Vaswani et al., 2017) enabled more efficient pre-training on large datasets, which proved to inject significant amounts of precise factual world knowledge into pre-trained LMs (Petroni et al., 2019) that can be redirected to downstream tasks through fine-tuning (Roberts et al., 2020).Most recently, various works have shown that language models pre-trained with unsupervised generative modeling can be fine-tuned to engage in general-purpose dialogue, producing a model that can perform a variety of complex tasks specified in natural language (Thoppilan et al., 2022;Ouyang et al., 2022;Bai et al., 2022;Bubeck et al., 2023;Touvron et al., 2023b).Due to",
-    "next": null
   },
   {
     "index": 475,
@@ -3353,17 +3001,6 @@
     "prev": "Another technique is a consistency regularization which states that realistic perturbations of input examples from unlabeled dataset should not significantly change the output of a neural network.",
     "curr": "Consistency regularization is used in Π-model (Laine & Aila, 2017) and further improved by Temporal Ensembling (Laine & Aila, 2017) which maintains an exponential moving average prediction for each training example and Mean Teacher (Tarvainen & Valpola, 2017) that averages model weights instead of model predictions.",
     "next": "Recent methods UDA (Xie et al., 2019), ReMixMatch  and FixMatch ) use a combination of consistency loss, pseudo-labeling and advanced augmentation techniques in addition to color perturbations and spatial transformations."
-  },
-  {
-    "index": 496,
-    "source_corpus_id": 207878944,
-    "ref_id": "b39",
-    "citation_corpus_id": 8217340,
-    "start": 3663,
-    "end": 3682,
-    "prev": null,
-    "curr": "tle differences between interpretability and explanation (Turner, 2016).While the former mainly focuses on building or approximating models that are locally or globally interpretable (Ribeiro et al., 2016), the latter aims at explaining a predictor aposteriori.The explanation approach does not compromise the prediction performance.However, a rigorous definition for what is a good explanation is elusive.Some researchers focused on providing feature importance (e.g., in the form of a heatmap (Selvaraju et al., 2017)) that influence the outcome of the predictor.In some applications (e.g., diagnosis with medical images) the causal changes are spread out across a large number of features (i.e., large portions of the image are impacted by a disease).Therefore, a heatmap may not be informative or useful, as almost all image features are highlighted.Furthermore, those methods do not explain why a predictor returns an outcome.Others have introduced local occlusion or perturbations to the input (Zhou et al., 2014;Fong & Vedaldi, 2017) by assessing which manipulations have the largest impact on the predictors.There is also recent interest in generating counterfactual inputs that would change the black box classification decision with respect to the query inputs (Goyal et al., 2019;Liu et al., 2019).Local perturbations of a query are not guaranteed to generate realistic or plausible inputs, which diminishes the usefulness of the explanation, especially for end users (e.g., physicians).We argue that the explanation should depend not only on the predictor function but also on the data.Therefore, it is reasonable to train a model that learns from data as well as the black-box classifier (e.g., (Chang et al., 2019;Dabkowski & Gal, 2017;Fong & Vedaldi, 2017)).",
-    "next": "Our proposed method falls into the local explanation paradigm.Our approach is model agnostic and only requires access to the predictor values and its gradient with respect to the input.Given a query input to a black-box, we aim at explaining th"
   },
   {
     "index": 497,
@@ -3496,17 +3133,6 @@
     "prev": "Conditional Computation.",
     "curr": "Many conditional computation methods have been recently proposed with the goal of improving computational efficiency (Bengio et al., 2015;Veit & Belongie, 2018;Wang et al., 2018b;Graves, 2016;Meng et al., 2020;Pan et al., 2021).",
     "next": "Several works have been Figure 1: A conceptual view for adaptive temporal fusion."
-  },
-  {
-    "index": 519,
-    "source_corpus_id": 214222435,
-    "ref_id": "b4",
-    "citation_corpus_id": 29153681,
-    "start": 23607,
-    "end": 23631,
-    "prev": null,
-    "curr": null,
-    "next": null
   },
   {
     "index": 520,
@@ -3685,17 +3311,6 @@
     "next": "Wang et al."
   },
   {
-    "index": 544,
-    "source_corpus_id": 229297917,
-    "ref_id": "b30",
-    "citation_corpus_id": 14089312,
-    "start": 2248,
-    "end": 2264,
-    "prev": null,
-    "curr": null,
-    "next": null
-  },
-  {
     "index": 546,
     "source_corpus_id": 219530969,
     "ref_id": "b2",
@@ -3749,17 +3364,6 @@
     "prev": "In contrast, we rely on private GAN to reduce the support to only contain the set of privately generated samples, which makes PGB tractable even for high-dimensional data.",
     "curr": "We also provide an extension of the PGB method by incorporating the technique of discriminator rejection sampling [7,35].",
     "next": "We leverage the fact that the distinguisher's equilibrium strategy, which is a mixture of discriminators, can often accurately predict which samples are unlikely and thus can be used as a rejection sampler."
-  },
-  {
-    "index": 555,
-    "source_corpus_id": 257637230,
-    "ref_id": "b17",
-    "citation_corpus_id": 229924317,
-    "start": 4523,
-    "end": 4541,
-    "prev": null,
-    "curr": null,
-    "next": null
   },
   {
     "index": 557,
@@ -4246,17 +3850,6 @@
     "next": "To make HPO and NAS more efficient, researchers explored how we can learn from cheaper evaluations (e.g."
   },
   {
-    "index": 630,
-    "source_corpus_id": 262828485,
-    "ref_id": "b13",
-    "citation_corpus_id": 246241126,
-    "start": 5613,
-    "end": 5630,
-    "prev": null,
-    "curr": null,
-    "next": null
-  },
-  {
     "index": 632,
     "source_corpus_id": 204905143,
     "ref_id": "b16",
@@ -4299,17 +3892,6 @@
     "prev": "(2017) Learning to execute programs.",
     "curr": "Neural Program Interpreters (NPI) have been extensively studied for programs that abstract and execute tasks such as sorting, shape manipulation, and grade-school arithmetic (Reed & De Freitas, 2016;Cai et al., 2017;Bošnjak et al., 2017).",
     "next": "In NPI (Reed & De Freitas, 2016), the key insight is that a program execution trace can be decomposed into predefined operations that are more primitive; and at each step, an NPI learns to predict what operation to take next depending on the general environment, domain specific state , and previous actions."
-  },
-  {
-    "index": 638,
-    "source_corpus_id": 263605565,
-    "ref_id": "b21",
-    "citation_corpus_id": 238419652,
-    "start": 7180,
-    "end": 7202,
-    "prev": "(2020); Kamilov et al.",
-    "curr": "(2023)).For example, the proximal-gradient method variant of PnP can be written as (Hurault et al., 2022a)\nx k ← prox γg (z k ) with z k ← x k−1 − γτ (x k−1 − D σ (x k−1 )),(3)\nwhere D σ is a denoiser with a parameter σ > 0 for controlling its strength, τ > 0 is a regularization parameter, and γ > 0 is a step-size.The theoretical convergence of PnP methods has been established for convex functions g using monotone operator theory (Sreehari et al., 2016;Sun et al., 2019;Ryu et al., 2019), as well as for nonconvex functions based on interpreting the denoiser as a MMSE estimator (Xu et al., 2020) or ensuring that the term (I − D σ ) in (3) corresponds to a gradient ∇h of a function h parameterized by a deep neural network (Hurault et al., 2022a,b;Cohen et al., 2021a).Many variants of PnP have been developed over the past few years (Romano et al., 2017;Metzler et al., 2018;Zhang et al., 2017b;Meinhardt et al., 2017;Dong et al., 2019;Zhang et al., 2019;Wei et al., 2020), which has motivated an extensive research on its theoretical properties (Chan et al., 2017;Buzzard et al., 2018;Ryu et al.,",
-    "next": null
   },
   {
     "index": 639,
@@ -4499,17 +4081,6 @@
     "next": "Besides the prevalent 'dense-vector retrieval' paradigm that encodes both queries and documents in the same low-dimension, real-valued latent semantic space , another retrieval paradigm, 'lexicon-weighting retrieval', aims to leverage weighted sparse representation in vocabulary space (Formal et al., 2021a;."
   },
   {
-    "index": 665,
-    "source_corpus_id": 262065523,
-    "ref_id": "b19",
-    "citation_corpus_id": 13046179,
-    "start": 2139,
-    "end": 2165,
-    "prev": "ion (UQ) methods to modulate CIs.To this end, we propose G-∆UQ, a new single model UQ method that extends the recently proposed stochastic centering framework to support structured data and partial stochasticity.Evaluated across covariate, concept, and graph size shifts, G-∆UQ not only outperforms several popular UQ methods in obtaining calibrated CIs, but also outperforms alternatives when CIs are used for generalization gap prediction or OOD detection.Overall, our work not only introduces a new, flexible GNN UQ method, but also provides novel insights into GNN CIs on safety-critical tasks.",
-    "curr": "INTRODUCTION\n\nAs graph neural networks (GNNs) are increasingly deployed in critical applications with test-time distribution shifts (Zhang & Chen, 2018;Gaudelet et al., 2020;Yang et al., 2018;Yan et al., 2019;Zhu et al., 2022), it becomes necessary to expand model evaluation to include safety-centric metrics, such as calibration errors (Guo et al., 2017), out-of-distribution (OOD) rejection rates (Hendrycks & Gimpel, 2017), and generalization gap estimates (Jiang et al., 2019), to holistically understand model performance in such shifted regimes (Hendrycks et al., 2022b;Trivedi et al., 2023b).Notably, such additional metrics often rely on confidence indicators (CIs), such as maximum softmax or predictive entropy, which can be derived from prediction probabilities.Although there is a clear understanding in the computer vision literature that the quality of confidence indicators can noticeably deteriorate under distribution shifts (Wiles et al., 2022;Ovadia et al., 2019), and additional factors like model size or expressivity can exacerbate this deterioration (Minderer et al., 2021), the impact of these phenomena on graph neural networks (GNNs) remains under-explored.Indeed, there is an expectation that adopting more advanced or expressive architectures (Chuang & Jegelka, 2022;Alon & Yahav, 2021;Topping et al., 2022;Rampášek et al., 2022;Zhao et al., 2022) would inherently improve CI calibration on graph",
-    "next": null
-  },
-  {
     "index": 666,
     "source_corpus_id": 3473900,
     "ref_id": "b16",
@@ -4563,17 +4134,6 @@
     "prev": "Various defensive methods have been proposed to mitigate the effect of the adversarial examples.",
     "curr": "Adversarial training which augments the training set with adversarial examples shows good defensive performance in terms of white box attacks (Kurakin et al., 2017;.",
     "next": "Apart from adversarial training, there are many other defensive approaches including defensive distillation (Papernot et al., 2016b), using randomization at inference time (Xie et al., 2018), and thermometer encoding (Buckman et al., 2018), etc."
-  },
-  {
-    "index": 677,
-    "source_corpus_id": 53208122,
-    "ref_id": "b1",
-    "citation_corpus_id": 102351048,
-    "start": 23582,
-    "end": 23607,
-    "prev": null,
-    "curr": null,
-    "next": null
   },
   {
     "index": 679,
@@ -4717,17 +4277,6 @@
     "prev": "Under review.",
     "curr": "Introduction\n\nDeep Neural Network (DNN) has been shown to exhibit susceptibility to adversarial attacks [55], wherein intentionally crafted imperceptible perturbations introduced into the original input cause the model's predictions to be altered.",
     "next": "Among various defense methods [32,37,60,9,42], Adversarial Training (AT) [39] stands out as one of the most effective techniques [3,59] to enhance DNN's adversarial robustness."
-  },
-  {
-    "index": 702,
-    "source_corpus_id": 262013578,
-    "ref_id": "b21",
-    "citation_corpus_id": 2134321,
-    "start": 31943,
-    "end": 31961,
-    "prev": null,
-    "curr": "g (large) Transformers more efficient is currently a highly active area of research.Probably the currently most popular and practical approach is quantization, that is reducing the numerical precision of weights (and sometimes also activations) (Frantar et al., 2022;Dettmers & Zettlemoyer, 2022;Xiao et al., 2022).Further, there are also many works on Mixture-of-Expert (MoE) models, large ensembles of models/individual layers where each input is only processed by a small part, thus keeping the overall computation cost constant (Du et al., 2022;Fedus et al., 2022;Artetxe et al., 2022;Riquelme et al., 2021).MoEs are a form of dynamic activation sparsity, which is very different from the static weight sparsity that we study in this work; the former trades off increased memory for faster inference, whereas the latter reduces both inference and memory costs.In general, we note that quantization, MoEs and weight sparsity are all complementary techniques that may be stacked for compound gains (Han et al., 2016;Kurtic et al., 2022).",
-    "next": "DISCUSSION\n\nLimitations.While we have conducted extensive experiments, for both vision and language domains, our results still have limitations, which we hope will be addressed in future work."
   },
   {
     "index": 704,
@@ -5016,28 +4565,6 @@
     "next": "pioneered the use of attention-based neighborhood aggregation, in one of the most common GNN variants -Graph Attention Network (GAT)."
   },
   {
-    "index": 756,
-    "source_corpus_id": 221470196,
-    "ref_id": "b12",
-    "citation_corpus_id": 3463260,
-    "start": 7365,
-    "end": 7385,
-    "prev": null,
-    "curr": null,
-    "next": null
-  },
-  {
-    "index": 757,
-    "source_corpus_id": 248986748,
-    "ref_id": "b31",
-    "citation_corpus_id": 247476396,
-    "start": 8286,
-    "end": 8302,
-    "prev": null,
-    "curr": null,
-    "next": null
-  },
-  {
     "index": 759,
     "source_corpus_id": 264289264,
     "ref_id": "b44",
@@ -5069,17 +4596,6 @@
     "prev": "This leads to the emergence of the recently popular topic, subject-driven text-to-image generation [8,27].",
     "curr": "Text-Guided Image Editing Text-guided image editing [2,3,11,15,17,20] aims to edit an input image according to the given textual descriptions.",
     "next": "SDEdit [20] and Blended-Diffusion [1] blend the noisy input to the generated image in the diffusion denoising process."
-  },
-  {
-    "index": 763,
-    "source_corpus_id": 203593355,
-    "ref_id": "b22",
-    "citation_corpus_id": 604334,
-    "start": 1572,
-    "end": 1593,
-    "prev": null,
-    "curr": null,
-    "next": null
   },
   {
     "index": 764,
@@ -5214,17 +4730,6 @@
     "next": "Variational Autoencoders (VAEs) [27,38] allow for a principled probabilistic way to model high-dimensional distributions."
   },
   {
-    "index": 788,
-    "source_corpus_id": 258741298,
-    "ref_id": "b62",
-    "citation_corpus_id": 202539551,
-    "start": 2101,
-    "end": 2123,
-    "prev": "nowledge cards serve as parametric repositories that are selected at inference time to generate background knowledge for the base LLM.We then propose three content selectors to dynamically select and retain information in documents generated by knowledge cards, specifically controlling for relevance, brevity, and factuality of outputs.Finally, we propose two complementary integration approaches to augment the base LLM with the (relevant, factual) knowledge curated from the specialized LMs.Through extensive experiments, we demonstrate that KNOWLEDGE CARD achieves state-of-the-art performance on six benchmark datasets.Ultimately, KNOWLEDGE CARD framework enables dynamic synthesis and updates of knowledge from diverse domains.Its modularity will ensure that relevant knowledge can be continuously updated through the collective efforts of the research community.",
-    "curr": "INTRODUCTION\n\nLarge language models (LLMs) have demonstrated an impressive ability to encode world knowledge in model parameters (Petroni et al., 2019;Roberts et al., 2020).However, they still face various challenges in knowledge-intensive tasks and contexts: they suffer from hallucination (Kryściński et al., 2020;Pagnoni et al., 2021;Ji et al., 2023), struggle to encode long-tail facts (Kandpal et al., 2023;Mallen et al., 2023), and could not be easily updated with new and emerging knowledge (De Cao et al., 2021;Hase et al., 2021).Existing works propose addressing these limitations through retrieval augmentation or generated knowledge prompting.Retrieval-augmented LMs (Guu et al., 2020;Borgeaud et al., 2022;Shi et al., 2023) employ retrieval systems to fetch relevant documents from a general and fixed retrieval corpus (e.g., Wikipedia or the Pile (Gao et al., 2020)), leveraging external knowledge from non-parametric sources to aid LLM generation.Generated knowledge prompting approaches (Shin et al., 2020;Liu et al., 2022a;Sun et al., 2022) prompt LLMs to incorporate and generate contextual documents to encourage knowledge-aware gene",
-    "next": null
-  },
-  {
     "index": 789,
     "source_corpus_id": 252118863,
     "ref_id": "b12",
@@ -5234,17 +4739,6 @@
     "prev": "Early practices revolve around contrastive learning [6-8, 18, 20] where the model output features of images transformed by different data augmentations are pulled together.",
     "curr": "With the development of Masked Language Modeling (MLM) in language pre-training [13], researchers also introduce the training strategy of masked reconstruction to visual pre-training.",
     "next": "BEiT [3] uses the DALL-E [32] to encode an image patch as the target for model reconstruction."
-  },
-  {
-    "index": 792,
-    "source_corpus_id": 264306022,
-    "ref_id": "b3",
-    "citation_corpus_id": 9128667,
-    "start": 7926,
-    "end": 7951,
-    "prev": null,
-    "curr": null,
-    "next": null
   },
   {
     "index": 793,
@@ -5289,17 +4783,6 @@
     "prev": "INTRODUCTION\n\nDeformable object manipulation (DOM) is a crucial area of research with broad applications, from household (Maitin-Shepard et al., 2010;Miller et al., 2011;Ma et al., 2022) to industrial settings (Miller et al., 2012;.",
     "curr": "To aid in algorithm development and prototyping, several DOM benchmarks Huang et al., 2021) have been developed using deformable object simulators.",
     "next": "However, the high dimensional state and action spaces remain a significant challenge to DOM."
-  },
-  {
-    "index": 797,
-    "source_corpus_id": 238407774,
-    "ref_id": "b44",
-    "citation_corpus_id": 212859361,
-    "start": 7588,
-    "end": 7604,
-    "prev": null,
-    "curr": null,
-    "next": null
   },
   {
     "index": 798,
@@ -5456,17 +4939,6 @@
     "next": "In contrast to works which aim to discover objects in a completely unsupervised manner, we focus on using object representations learned with minimal supervision, in the form of segmentation masks, for downstream tasks."
   },
   {
-    "index": 817,
-    "source_corpus_id": 256274796,
-    "ref_id": "b4",
-    "citation_corpus_id": 1740355,
-    "start": 3268,
-    "end": 3287,
-    "prev": null,
-    "curr": null,
-    "next": null
-  },
-  {
     "index": 818,
     "source_corpus_id": 2703040,
     "ref_id": "b19",
@@ -5599,17 +5071,6 @@
     "next": "In contrast, instead of rejecting instances belonging to novel classes, open-world SSL aims at discovering individual novel classes and then assigning instances to them."
   },
   {
-    "index": 834,
-    "source_corpus_id": 68137503,
-    "ref_id": "b31",
-    "citation_corpus_id": 3708505,
-    "start": 2925,
-    "end": 2942,
-    "prev": null,
-    "curr": null,
-    "next": null
-  },
-  {
     "index": 835,
     "source_corpus_id": 222140859,
     "ref_id": "b9",
@@ -5643,17 +5104,6 @@
     "next": "MODELS AND TRAINING PROCESS\n\nGhostNet Our classification network consist of 3 ghost bottlenecks and ends with a convolutional layer and average pooling."
   },
   {
-    "index": 841,
-    "source_corpus_id": 56657805,
-    "ref_id": "b7",
-    "citation_corpus_id": 3530344,
-    "start": 3867,
-    "end": 3885,
-    "prev": null,
-    "curr": null,
-    "next": null
-  },
-  {
     "index": 847,
     "source_corpus_id": 5037032,
     "ref_id": "b32",
@@ -5665,17 +5115,6 @@
     "next": "(1995) jointly learn forward and inverse dynamics model but do not optimize for consistency between the forward and inverse dynamics.We empirically show that learning models by our forward consistency loss significantly improves task p"
   },
   {
-    "index": 849,
-    "source_corpus_id": 257365203,
-    "ref_id": "b52",
-    "citation_corpus_id": 237291550,
-    "start": 3654,
-    "end": 3673,
-    "prev": null,
-    "curr": null,
-    "next": null
-  },
-  {
     "index": 850,
     "source_corpus_id": 232233563,
     "ref_id": "b17",
@@ -5685,17 +5124,6 @@
     "prev": "Although RL has achieved impressive achievements on various tasks (Silver et al., 2017;Mnih et al., 2015;Berner et al., 2019), it is very expensive to provide dense rewards for every task we want the robot to learn.",
     "curr": "Intrinsically motivated reinforcement learning encourages the agent to explore by providing an \"internal motivation\" instead, such as curiosity (Schmidhuber, 1991;Pathak et al., 2017;Burda et al., 2018), diversity (Gregor et al., 2016;Haarnoja et al., 2018;Eysenbach et al., 2019) and empowerment (Klyubin et al., 2005;Salge et al., 2014;Mohamed & Rezende, 2015).",
     "next": "Those internal motivations can be computed on the fly when the agent is interacting with the environment, without any human engineered reward."
-  },
-  {
-    "index": 851,
-    "source_corpus_id": 263829780,
-    "ref_id": "b17",
-    "citation_corpus_id": 247628243,
-    "start": 2571,
-    "end": 2592,
-    "prev": "INTRODUCTION\n\nThe dominant paradigm of natural language generation systems hinges on probabilistic neural language models (Radford et al., 2019;Zhang et al., 2022), which permit evaluating the probability of any given text sequence as well as generating novel ones using various decoding strategies upon learned distributions (Holtzman et al., 2019;Meister et al., 2023b).Language modeling, the process of aligning model distribution with that of human language, is usually formulated as a sequence prediction task in which maximum likelihood estimation (MLE) is typically adopted as the training objective owing to its simplicity and intuitiveness.",
-    "curr": "However, various text degeneration phenomena with incoherent and nonsensical (LeBrun et al., 2021;Holtzman et al., 2019) content are still widely observed in text generated from language models pre-trained on massive amounts of human data.This indicates that the model distribution Q θ (parametrized by θ) learned by MLE still differs substantially from the human language distribution P , despite having a seemingly low training loss (Meister et al., 2023b).From a distributional view, training with MLE is equivalent to minimizing the forward cross-entropy between P and Q θ :\nCE(P, Q θ ) = −E x∼P [log Q θ (x)]\n(1)\n\nWe argue that the forward cross-entropy has inherent limitations as a metric for matching model distribution and that of human language.Firstly, forward cross-entropy is recall-prioritized (Meister et al., 2023a).At each time step, it focuses exclusively on increasing the model likelihood of the 1 arXiv:2310.04691v3[cs.CL] 2 Nov 2023\n\nPreprint ground-truth next token.This can result in poor precision of the learned model distribution when training data is noisy or slow conve",
-    "next": null
   },
   {
     "index": 853,
@@ -5830,17 +5258,6 @@
     "next": "(ii) The mode of the distribution is degenerated (Welleck et al., 2020), where samples with high probabilities exhibit low diversity with repetitive patterns.As a result, sampling-based decoding methods (Fan et al., 2018;Holtzman et al., 2020;Meister et al., 2022) use various truncation strategies to avoid sampling from the unreliable long tail of the distribution, while recent search-based methods (Li et al., 2022;Su et al., 2022) incorporate additional contrastive objectives to avoid the collapse of degenerated repetitions.Since these two mis-specifications reside at opposing extremes of the probability spectrum, current decoding methods inevitably concentrate on Preprint."
   },
   {
-    "index": 873,
-    "source_corpus_id": 259243562,
-    "ref_id": "b31",
-    "citation_corpus_id": 6212000,
-    "start": 1292,
-    "end": 1310,
-    "prev": null,
-    "curr": null,
-    "next": null
-  },
-  {
     "index": 874,
     "source_corpus_id": 263608822,
     "ref_id": "b43",
@@ -5885,28 +5302,6 @@
     "next": "These methods, inspired by Generative Adversarial Networks (GANs) (Goodfellow et al., 2014), alternate between learning a discriminator, and improving the agent's policy w.r.t."
   },
   {
-    "index": 885,
-    "source_corpus_id": 1638605,
-    "ref_id": "b0",
-    "citation_corpus_id": 13239813,
-    "start": 3632,
-    "end": 3657,
-    "prev": null,
-    "curr": null,
-    "next": null
-  },
-  {
-    "index": 887,
-    "source_corpus_id": 257078711,
-    "ref_id": "b8",
-    "citation_corpus_id": 246430387,
-    "start": 27784,
-    "end": 27801,
-    "prev": null,
-    "curr": null,
-    "next": null
-  },
-  {
     "index": 889,
     "source_corpus_id": 252280353,
     "ref_id": "b15",
@@ -5927,17 +5322,6 @@
     "prev": "The virtual rodent affords a new opportunity to directly compare principles of artificial control to biological data from real-world rodents, which are more experimentally accessible than humans.",
     "curr": "We draw inspiration from emerging deep reinforcement learning algorithms which now allow artificial agents to perform complex and adaptive movement in physical environments with sensory information that is increasingly similar to that available to animals (Peng et al., 2016;Heess et al., 2017;Merel et al., 2019a;.",
     "next": "Similarly, our virtual rodent exists in a physical world, equipped with a set of actuators that must be coordinated for it to behave effectively."
-  },
-  {
-    "index": 892,
-    "source_corpus_id": 245634209,
-    "ref_id": "b13",
-    "citation_corpus_id": 202230734,
-    "start": 4254,
-    "end": 4275,
-    "prev": null,
-    "curr": null,
-    "next": null
   },
   {
     "index": 893,
@@ -5993,17 +5377,6 @@
     "prev": "As also mentioned by Tran et al.",
     "curr": "[52], previous work on Gumbel-softmax distributions indicate that the gradient approximation works well when the number of classes is lower than 200 [32,23].",
     "next": "Finally, the question remains if a sequence of additive bijectors of the form of Eq."
-  },
-  {
-    "index": 908,
-    "source_corpus_id": 57375714,
-    "ref_id": "b12",
-    "citation_corpus_id": 9996719,
-    "start": 6983,
-    "end": 7005,
-    "prev": null,
-    "curr": null,
-    "next": null
   },
   {
     "index": 910,
@@ -6125,28 +5498,6 @@
     "prev": " capture and learn structural information about objects and scenes.The intermediate feature representations obtained from MIM are suitable for fine-tuning on downstream tasks.In this paper, we propose an Image Modeling framework based on random orthogonal projection instead of binary masking as in MIM.Our proposed Random Orthogonal Projection Image Modeling (ROPIM) reduces spatially-wise token information under guaranteed bound on the noise variance and can be considered as masking entire spatial image area under locally varying masking degrees.Since ROPIM uses a random subspace for the projection that realizes the masking step, the readily available complement of the subspace can be used during unmasking to promote recovery of removed information.In this paper, we show that using random orthogonal projection leads to superior performance compared to crop-based masking.We demonstrate state-of-the-art results on several popular benchmarks.",
     "curr": "INTRODUCTION\n\nROPIM MAE (He et al., 2022) CIM (Fang et al., 2023) BEiT (Bao et al., 2022) MoCov3 (Chen et al., 2021b) MFM (Xie et.al., 2023) CAN (Mishra et al., 2022) GPL-MAE (Jiang et al., 2023) GPL-ROPIM Fast methods Best-performing Masked Image Modeling (MIM) (Bao et al., 2022;He et al., 2022;Xie et al., 2022) has achieved promising performance by pretraining backbones that are then fine-tuned on different downstream tasks such as image classification or semantic segmentation.",
     "next": "Most MIM techniques follow the general paradigm of self-prediction, i.e., they randomly mask out some regions in the input data and then learn to recover the missing data.Current MIM methods (Bao et al., 2022;He et al., 2022;Xie et al., 2022) mainly apply masking in the spatial domain by randomly excluding image patches.Since raw image pixels are highly correlated within their spatial neighbourhood, a high masking ratio (60%-75%) leads to high quality features (He et al., 2022;Xie et al., 2022)."
-  },
-  {
-    "index": 933,
-    "source_corpus_id": 252907467,
-    "ref_id": "b29",
-    "citation_corpus_id": 233296246,
-    "start": 7882,
-    "end": 7904,
-    "prev": null,
-    "curr": null,
-    "next": null
-  },
-  {
-    "index": 935,
-    "source_corpus_id": 258865836,
-    "ref_id": "b9",
-    "citation_corpus_id": 52967399,
-    "start": 2062,
-    "end": 2083,
-    "prev": "* Equal contribution.",
-    "curr": "INTRODUCTION\n\nThe goal of natural language processing (NLP) is to develop computational models that can understand and generate human language.By capturing the statistical patterns and structures of text-based natural language, language models can predict and generate coherent and meaningful sequences of words.Combined with the Transformer model architecture (Vaswani et al., 2017), large language models (LLMs) trained on web-scale amounts of text, with proportionate compute and size, have demonstrated remarkable success in NLP tasks (Devlin et al., 2019;Brown et al., 2020;Chowdhery et al., 2022;Zhang et al., 2022a;Scao et al., 2022;Zeng et al., 2023).However, transfering these abilities to spoken human language remains a challenging frontier.Spoken dialog systems remain a cascade of separately trained automatic speech recognition (ASR), natural language understanding (NLU) and generation (NLG), and text-to-speech (TTS) systems (Gorin et al., 1997;Jokinen & McTear, 2009), with LLMs now playing the role of a combined NLU and NLG system.However, such cascades introduce latency and additional mechanisms for propagating and rendering non-verbal cues like speaker identity and prosody.Recently, spoken language models (Lakhotia et al., 2021;Kharitonov et al., 2022) and other generative audio models (Dhariwal et al., 2020;Hawthorne et al., 2022;Borsos et al., 2022;Agostinelli et al., 2023) have emerged as a promising avenue for generative speech modeling.These works quantize audio representations (Hsu et al., 2021;Chung et al., 2021;Zeghidour",
-    "next": null
   },
   {
     "index": 936,
@@ -6279,17 +5630,6 @@
     "prev": "Batch normalization and its variant are introduced in deep deterministic policy gradient (DDPG) (Lillicrap et al., 2015) and twin delayed DDPG (Fujimoto et al., 2018) (Bhatt et al., 2020).",
     "curr": "Layer normalization is introduced in the implementation of maximum a posteriori policy optimisation(Abdolmaleki et al., 2018; Hoffman et al.,  2020).",
     "next": "It is also introduced in SAC extensions(Ma et al., 2020; Zhang et al., 2021)\n\nFigure 4 :Figure 5 :\n45Average return and average/standard deviation of estimation bias for DroQ with different dropout rates."
-  },
-  {
-    "index": 965,
-    "source_corpus_id": 202539918,
-    "ref_id": "b28",
-    "citation_corpus_id": 14091946,
-    "start": 1524,
-    "end": 1544,
-    "prev": null,
-    "curr": null,
-    "next": null
   },
   {
     "index": 967,
@@ -6435,28 +5775,6 @@
     "next": "Why would the model tend to explain an image through discovery while suppressing propagation?First, the model does not care where-either from discovery or propagation-an object is sourced from as long as it can make an accurate reconstruction.Second, the propagation step performs a much harder task than the discovery.For the propagation to properly predict, tracker n needs to learn to find the matching object from an image containing many objects.Although the propagation attention plays an important role in balancing the discovery and pr"
   },
   {
-    "index": 986,
-    "source_corpus_id": 262054258,
-    "ref_id": "b32",
-    "citation_corpus_id": 253107613,
-    "start": 3698,
-    "end": 3718,
-    "prev": null,
-    "curr": "nt years, large pre-trained Transformers (Vaswani et al., 2017), so-called foundation models (Bommasani et al., 2021), have proven to be highly successful across a wide range of predictive tasks (Bubeck et al., 2023;Rae et al., 2021) and are thus promising candidates for use with arithmetic coding.Indeed, Transformer-based compression with arithmetic coding has produced state-of-theart results both in the online (Bellard, 2021;Mao et al., 2022) and offline settings (Valmeekam et al., 2023).In the online setting, a pseudo-randomly initialized model is directly trained on the stream of data that is to be compressed, while the offline setting, which we consider in our work, trains the model on an external dataset before employing it to compress a (potentially different) data stream.Consequently, offline compression is performed in-context, with a fixed set of model parameters.Transformers have demonstrated impressive in-context learning abilities (Brown et al., 2020;Genewein et al., 2023;Laskin et al., 2023;Wei et al., 2022), which renders them ideally suited for offline compression.However, as we will discuss in this work, Transformers are actually trained to compress well, and therefore must have good in-context learning abilities.",
-    "next": "I\n\nFigure 1 | Arithmetic encoding of the sequence ' AIXI' with a probabilistic (language) model  (both in blue) resulting in the binary code '0101001' (in green).Arithmetic coding compresses data by assigning unique intervals to symbols based on the probabilities assigned by .It progressively refines these intervals to output compressed bits, which represent the original message.To decode, arithmetic coding initializes an interval based on the received compressed bits.It iteratively matches intervals with symbols using the probabilities given by  to reconstruct the original message."
-  },
-  {
-    "index": 987,
-    "source_corpus_id": 209439843,
-    "ref_id": "b12",
-    "citation_corpus_id": 85504763,
-    "start": 11848,
-    "end": 11868,
-    "prev": null,
-    "curr": null,
-    "next": null
-  },
-  {
     "index": 988,
     "source_corpus_id": 53831933,
     "ref_id": "b2",
@@ -6490,17 +5808,6 @@
     "next": "Fortunately, many programming languages come with relatively mature tools and technologies for automated test data generation."
   },
   {
-    "index": 996,
-    "source_corpus_id": 213392702,
-    "ref_id": "b25",
-    "citation_corpus_id": 21946795,
-    "start": 5104,
-    "end": 5124,
-    "prev": null,
-    "curr": null,
-    "next": null
-  },
-  {
     "index": 997,
     "source_corpus_id": 219401642,
     "ref_id": "b7",
@@ -6532,17 +5839,6 @@
     "prev": "Other work has improved language modeling performance by modifying the RNN architecture to better handle increased recurrence depth (Zilly et al., 2016).",
     "curr": "In order to increase capacity and minimize the impact of vanishing gradients, some language and translation mod- WikiText-2  WikiText-103  Train  Valid  Test  Train  Valid  Test  Train  Valid  Test   Articles  ---600  60  60  28,475  60  60  Tokens  929,590 73,761 82, els have also added a soft attention or memory component (Bahdanau et al., 2015;Sukhbaatar et al., 2015;Cheng et al., 2016;Kumar et al., 2016;Xiong et al., 2016;Ahn et al., 2016).",
     "next": "These mechanisms allow for the retrieval and use of relevant previous hidden states."
-  },
-  {
-    "index": 1001,
-    "source_corpus_id": 252735240,
-    "ref_id": "b29",
-    "citation_corpus_id": 240288835,
-    "start": 7226,
-    "end": 7244,
-    "prev": null,
-    "curr": null,
-    "next": null
   },
   {
     "index": 1002,
@@ -6631,17 +5927,6 @@
     "prev": "With increasing attention on this issue, researchers have been probing the generalisation performance of ML models by creating datasets that feature distribution shift tasks (Koh et al., 2021;Gulrajani and Lopez-Paz, 2020;Shah et al., 2020) and proposing algorithms that aim to improve generalisation performance under distribution shift (Ganin et al., 2016;Arjovsky et al., 2019;Sun and Saenko, 2016; Figure 1: Synthetic vs. realistic distribution shift: The distribution shift in synthetic datasets (left, MNIST-CIFAR and CdSprites) are usually extreme and controllable (adjusted via changing the correlation); for realistic datasets (right, WILDS-Camelyon17 and FMoW) distribution shift can be subtle, hard to identify and impossible to control.",
     "curr": "Sagawa et al., 2020;Shi et al., 2022).",
     "next": "In this work, we identify three specific problems with current approaches in distribution shift problems, in computer vision, and develop a suite of experiments to address them."
-  },
-  {
-    "index": 1014,
-    "source_corpus_id": 221112371,
-    "ref_id": "b7",
-    "citation_corpus_id": 1428702,
-    "start": 9552,
-    "end": 9570,
-    "prev": null,
-    "curr": null,
-    "next": null
   },
   {
     "index": 1016,
@@ -6842,17 +6127,6 @@
     "next": "In this paper, we propose eXploit-Then-eXplore (XTX), an algorithm for multi-stage control to explicitly decompose the exploitation and exploration phases within each episode."
   },
   {
-    "index": 1045,
-    "source_corpus_id": 258564352,
-    "ref_id": "b11",
-    "citation_corpus_id": 222133157,
-    "start": 3787,
-    "end": 3807,
-    "prev": null,
-    "curr": null,
-    "next": null
-  },
-  {
     "index": 1046,
     "source_corpus_id": 251066616,
     "ref_id": "b9",
@@ -6862,17 +6136,6 @@
     "prev": "B.6 LIMITATIONS AND FUTURE WORK\n\nThe proposed work focuses mainly on a mixture density network (MDN) as the generative channel model, which allows us to exploit some of their useful properties in our formulation.",
     "curr": "Generalizing the proposed few-shot domain adaptation to other types of generative channel models such as conditional GANs, VAEs, and normalizing flows (Dinh et al., 2017) could be an interesting direction.",
     "next": "These generative models can handle more high-dimensional structured inputs."
-  },
-  {
-    "index": 1051,
-    "source_corpus_id": 239050418,
-    "ref_id": "b22",
-    "citation_corpus_id": 236087592,
-    "start": 2888,
-    "end": 2908,
-    "prev": null,
-    "curr": null,
-    "next": null
   },
   {
     "index": 1053,
@@ -6917,17 +6180,6 @@
     "prev": "In ACL, 2021.",
     "curr": "INTRODUCTION\n\nLarge-scale pre-trained language models (PLMs) have achieved great success in promoting state of the art on various natural language understanding and generation tasks (Devlin et al., 2019;Radford et al., 2019;Yang et al., 2019;Brown et al., 2020;.",
     "next": "PLM self-supervision training largely benefits from harvesting local context information in the pre-training corpus."
-  },
-  {
-    "index": 1058,
-    "source_corpus_id": 256868350,
-    "ref_id": "b6",
-    "citation_corpus_id": 195750622,
-    "start": 30219,
-    "end": 30241,
-    "prev": null,
-    "curr": null,
-    "next": null
   },
   {
     "index": 1059,
@@ -7007,17 +6259,6 @@
     "next": "Multiple integration layers provide contextualized representations of context, and are often inter-weaved with attention, which inject question information."
   },
   {
-    "index": 1076,
-    "source_corpus_id": 147704157,
-    "ref_id": "b19",
-    "citation_corpus_id": 65455367,
-    "start": 3260,
-    "end": 3279,
-    "prev": null,
-    "curr": null,
-    "next": null
-  },
-  {
     "index": 1077,
     "source_corpus_id": 229923128,
     "ref_id": "b18",
@@ -7040,17 +6281,6 @@
     "next": "When available, this kind of information about class semantics can be used to construct an improved subspace regularizer by encouraging new class representations to lie close to a convex combination of base classes weighted by their semantic similarity."
   },
   {
-    "index": 1080,
-    "source_corpus_id": 263672002,
-    "ref_id": "b27",
-    "citation_corpus_id": 227209335,
-    "start": 2217,
-    "end": 2236,
-    "prev": "an be characterized as the minimizers of simple quadratic objectives, and they are defined on a simplex that generalizes the time variable in the usual dynamical transport framework.The resulting transport on the simplex is influenced by all marginals, and we show that multi-way correspondences can be extracted.The identification of such correspondences has applications to style transfer, algorithmic fairness, and data decorruption.In addition, the multimarginal perspective enables an efficient algorithm for reducing the dynamical transport cost in the ordinary two-marginal setting.We demonstrate these capacities with several numerical examples.",
-    "curr": "INTRODUCTION\n\nGenerative models built upon dynamical transport of measure, in which two probability densities are connected by a learnable transformation, underlie many recent advances in unsupervised learning (Rombach et al., 2022;Dhariwal & Nichol, 2021).Contemporary methods such as normalizing flows (Rezende & Mohamed, 2015) and diffusions (Song et al., 2021b) transform samples from one density ρ 0 into samples from another density ρ 1 through an ordinary or stochastic differential equation (ODE/SDE).In such frameworks one must learn the velocity field defining the ODE/SDE.One effective algorithm for learning the velocity is based on the construction of a stochastic interpolant, a stochastic process that interpolates between the two probability densities at the level of the individual samples.The velocity can be characterized conveniently as the solution of a tractable square loss regression problem.In conventional generative modeling, one chooses ρ 0 to be an analytically tractable reference density, such as the standard normal density, while ρ 1 is some target density of interest, accessible only through a dataset of samples.In this setting, a general stochastic interpolant x t can be written as\nx t = α 0 (t)x 0 + α 1 (t)x 1 ,(1)\nwhere x 0 ∼ ρ 0 and x 1 ∼ ρ 1 and we allow for the possibility of dependence between x 0 and x 1 .Meanwhile α",
-    "next": null
-  },
-  {
     "index": 1081,
     "source_corpus_id": 260351224,
     "ref_id": "b4",
@@ -7060,17 +6290,6 @@
     "prev": "Bilevel optimization.",
     "curr": "Bilevel optimization is a powerful tool to study many machine learning applications such as hyperparameter optimization (Franceschi et al., 2018;Shaban et al., 2019), meta-learning (Bertinetto et al., 2018;Franceschi et al., 2018;Rajeswaran et al., 2019;Ji et al., 2020;, neural architecture search (Liu et al., 2018;Zhang et al., 2021a), etc.",
     "next": "Existing approaches are usually approximate implicit differentiation (AID) based (Domke, 2012;Pedregosa, 2016;Gould et al., 2016;Liao et al., 2018;Lorraine et al., 2020), or iterative differentiation (ITD) based (Domke, 2012;Maclaurin et al., 2015;Franceschi et al., 2017;Finn et al., 2017;Shaban et al., 2019;Rajeswaran et al., 2019;Liu et al., 2020)."
-  },
-  {
-    "index": 1082,
-    "source_corpus_id": 108297416,
-    "ref_id": "b0",
-    "citation_corpus_id": 3482308,
-    "start": 28333,
-    "end": 28352,
-    "prev": null,
-    "curr": null,
-    "next": null
   },
   {
     "index": 1083,
@@ -7304,17 +6523,6 @@
     "next": "In this paper, we demonstrate that rather simple analysis tools capture this behavior surprisingly well (under some assumptions).In particular, we show that classical PAC-Bayes bounds (McAllester, 1999), when applied to the discrete hypothesis class defined by prompts (and specifically with a prior given by a large language model), are often remarkably tight, even for large domains: for example, we achieve a generalizati"
   },
   {
-    "index": 1114,
-    "source_corpus_id": 254408645,
-    "ref_id": "b31",
-    "citation_corpus_id": 203139700,
-    "start": 38747,
-    "end": 38763,
-    "prev": null,
-    "curr": null,
-    "next": null
-  },
-  {
     "index": 1115,
     "source_corpus_id": 3464416,
     "ref_id": "b12",
@@ -7368,17 +6576,6 @@
     "prev": "(2020) showed that SATNet (Wang et al., 2019) could not solve visual Sudoku without using intermediate labels to identify individual Sudoku digit images.",
     "curr": "Similar limitations were observed in language related compounded tasks, including commonsense reasoning (Liu et al., 2022;Wei et al., 2022;Zelikman et al., 2022), math word problems (Piękos et al., 2021;Wei et al., 2022), and programs execution (Nye et al., 2022).",
     "next": "The go-to architectures in this domain are powerful language models, which are trained as sequence-to-sequence models over text."
-  },
-  {
-    "index": 1128,
-    "source_corpus_id": 236087352,
-    "ref_id": "b33",
-    "citation_corpus_id": 227054483,
-    "start": 2817,
-    "end": 2836,
-    "prev": null,
-    "curr": null,
-    "next": null
   },
   {
     "index": 1129,
@@ -7535,17 +6732,6 @@
     "next": "What would be the analogue of this kind of pre-training in robotics and RL?"
   },
   {
-    "index": 1152,
-    "source_corpus_id": 238531427,
-    "ref_id": "b0",
-    "citation_corpus_id": 7167114,
-    "start": 10161,
-    "end": 10180,
-    "prev": null,
-    "curr": null,
-    "next": null
-  },
-  {
     "index": 1153,
     "source_corpus_id": 235390683,
     "ref_id": "b27",
@@ -7678,17 +6864,6 @@
     "next": "Such a so-called world model can create new trajectories by iteratively predicting the next state and reward."
   },
   {
-    "index": 1174,
-    "source_corpus_id": 3473020,
-    "ref_id": "b28",
-    "citation_corpus_id": 13298214,
-    "start": 7727,
-    "end": 7749,
-    "prev": null,
-    "curr": null,
-    "next": null
-  },
-  {
     "index": 1176,
     "source_corpus_id": 52917627,
     "ref_id": "b6",
@@ -7731,17 +6906,6 @@
     "prev": "In comparison, the optimization routines used to train deep nets have arguable changed only little.",
     "curr": "Comparably simple first-order methods like SGD (Robbins & Monro, 1951), its momentum variants (MOMENTUM) (Polyak, 1964;Nesterov, 1983) and ADAM (Kingma & Ba, 2015) remain standards (Goodfellow et al., 2016;Karpathy, 2017).",
     "next": "The low practical relevance of more advanced optimization methods is not for lack of research, though."
-  },
-  {
-    "index": 1182,
-    "source_corpus_id": 248177810,
-    "ref_id": "b41",
-    "citation_corpus_id": 52895589,
-    "start": 7982,
-    "end": 7999,
-    "prev": null,
-    "curr": null,
-    "next": null
   },
   {
     "index": 1186,
