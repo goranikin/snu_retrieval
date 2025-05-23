@@ -14,7 +14,7 @@ run:
       uv sync
     workdir: /workspace/specter2
 
-  - command: uv run python main.py --output_path /output/citation_info.json
+  - command: uv run python extracting_sentence.py --output_path /output/citation_info.json
     workdir: /workspace/specter2/src/augmentation
 
 export:

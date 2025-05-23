@@ -46,6 +46,7 @@ def find_citation_paper_info(
 
 
 def extract_citation_context(text, citation):
+    nltk.download("punkt_tab")
     sentences = nltk.sent_tokenize(text)
 
     for idx, sent in enumerate(sentences):
