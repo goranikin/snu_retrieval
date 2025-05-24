@@ -14,7 +14,7 @@ run:
       uv sync
     workdir: /workspace/specter2
 
-  - command: uv run python filtering.py --output_path /output/filtered_citation_info.json --input_path /src/augmentation/citation_info.json
+  - command: uv run python filtering.py --output_path /output/filtered_citation_info.json --input_path /workspace/specter2/src/augmentation/citation_info.json
     workdir: /workspace/specter2/src/augmentation
 
 export:
