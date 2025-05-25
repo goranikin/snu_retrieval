@@ -1,12 +1,13 @@
 import os
 
 import torch
-from data import LitSearchDataset
-from loss import TripletMarginLoss
 from torch.optim import AdamW
 from torch.optim.lr_scheduler import OneCycleLR
 from torch.utils.data import DataLoader
 from tqdm import tqdm
+
+from src.specter2.data import LitSearchDataset
+from src.specter2.loss import TripletMarginLoss
 
 
 class SPECTER2Trainer:

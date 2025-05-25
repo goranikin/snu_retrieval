@@ -4,9 +4,10 @@ import os
 import random
 
 import hydra
-from model import SPECTER2QueryAdapterFinetuner
 from omegaconf import DictConfig
-from trainer import SPECTER2Trainer
+
+from src.specter2.model import SPECTER2QueryAdapterFinetuner
+from src.specter2.trainer import SPECTER2Trainer
 
 
 @hydra.main(config_path="../../conf", config_name="config", version_base=None)

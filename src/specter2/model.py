@@ -3,9 +3,10 @@ import os
 import faiss
 import torch
 from adapters import AutoAdapterModel
-from retrieval import Retrieval, TextType
 from tqdm import tqdm
 from transformers import AutoTokenizer
+
+from src.specter2.retrieval import Retrieval, TextType
 
 
 class SPECTER2QueryAdapterFinetuner(Retrieval):

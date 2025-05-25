@@ -3,13 +3,13 @@ import json
 import os
 import random
 
+import hydra
 import pandas as pd
 from datasets import load_dataset
-from model import SPECTER2QueryAdapterFinetuner
+from omegaconf import DictConfig
 from tqdm import tqdm
 
-import hydra
-from omegaconf import DictConfig
+from src.specter2.model import SPECTER2QueryAdapterFinetuner
 
 
 def evaluate_model(model, test_data, query_data, k_values=[1, 5, 10, 20]):
