@@ -7,7 +7,8 @@ resources:
 image: quay.io/vessl-ai/python:3.10-r18
 
 run:
-  - command: git clone https://github.com/goranikin/snu_retrieval /workspace/specter2
+  - command: rm -rf /workspace/specter2
+  - command: git clone https://github.com/goranikin/snu_retrieval /workspace/augmentation
 
   - command: |2-
       pip install --upgrade pip
@@ -18,7 +19,7 @@ run:
       ollama pull qwen3:14b
       sleep 10
       uv run python augmentation.py
-    workdir: /workspace/specter2/src/augmentation
+    workdir: /workspace/augmentation/src/augmentation
 
 export:
-  /workspace/specter2/src/augmentation/jsons: volume://vessl-storage/
+  /output: volume://vessl-storage/

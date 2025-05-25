@@ -74,6 +74,7 @@ def extract_query(llm_response):
 
 if __name__ == "__main__":
     import json
+
     from tqdm import tqdm
 
     with open("src/augmentation/jsons/filtered_citation_info.json") as f:
@@ -86,7 +87,5 @@ if __name__ == "__main__":
         if idx in query_map:
             item["query"] = query_map[idx]
 
-    with open(
-        "src/augmentation/jsons/filtered_citation_info_with_query.json", "w"
-    ) as f:
+    with open("/output/filtered_citation_info_with_query.json", "w") as f:
         json.dump(data, f, ensure_ascii=False, indent=2)
