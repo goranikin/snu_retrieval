@@ -11,7 +11,7 @@ if __name__ == "__main__":
     parser.add_argument(
         "--output_path",
         type=str,
-        default="./citation_info.json",
+        default="./jsons/citation_info.json",
         help="Output file path for citation info JSON",
     )
     args = parser.parse_args()

@@ -2595,9 +2595,11 @@ dependencies = [
     { name = "matplotlib" },
     { name = "nltk" },
     { name = "numpy" },
+    { name = "requests" },
     { name = "ruff" },
     { name = "scikit-learn" },
     { name = "torch" },
+    { name = "tqdm" },
     { name = "transformers" },
     { name = "vessl" },
 ]
@@ -2619,9 +2621,11 @@ requires-dist = [
     { name = "matplotlib", specifier = ">=3.10.1,<4.0.0" },
     { name = "nltk", specifier = ">=3.9.1" },
     { name = "numpy", specifier = ">=1.24.0,<2.0.0" },
+    { name = "requests", specifier = ">=2.32.3" },
     { name = "ruff", specifier = ">=0.11.10" },
     { name = "scikit-learn", specifier = ">=1.6.1,<2.0.0" },
     { name = "torch", specifier = ">=2.7.0,<3.0.0" },
+    { name = "tqdm", specifier = ">=4.67.1" },
     { name = "transformers", specifier = ">=4.48.3,<5.0.0" },
     { name = "vessl", specifier = ">=0.1.197" },
 ]

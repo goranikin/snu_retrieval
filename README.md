@@ -15,6 +15,7 @@ This repository contains code and configuration for fine-tuning and evaluating t
 1. **Clone the repository** and set up a Python 3.12+ environment.
 2. **Install dependencies** (preferably using [uv](https://github.com/astral-sh/uv)):
 ```bash
+pip install --upgrade uv
 uv sync
 ```
 
@@ -40,3 +41,7 @@ The steps above are performed by an LLM.
 
 
 ## trial
+
+First, I use qwen3:14b for generating queries.
+
+The trials of prompt engineering are in "Prompt.md".

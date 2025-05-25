@@ -1,10 +1,11 @@
-name: save_filtered_citation_info
+name: run_augmentation_with_llm
 
 resources:
   cluster: snu-eng-dgx
   preset: a100-half
 
 image: quay.io/vessl-ai/python:3.10-r18
+
 run:
   - command: git clone https://github.com/goranikin/snu_retrieval /workspace/specter2
 
@@ -12,10 +13,12 @@ run:
       pip install --upgrade pip
       pip install --upgrade uv
       uv sync
-    workdir: /workspace/specter2
-
-  - command: uv run python filtering.py --output_path /output/filtered_citation_info.json --input_path /workspace/specter2/src/augmentation/jsons/citation_info.json
+      curl -fsSL https://ollama.com/install.sh | sh
+      ollama serve &
+      ollama pull qwen3:14b
+      sleep 10
+      uv run python augmentation.py
     workdir: /workspace/specter2/src/augmentation
 
 export:
-  /output: volume://vessl-storage/
+  /workspace/specter2/src/augmentation/jsons: volume://vessl-storage/

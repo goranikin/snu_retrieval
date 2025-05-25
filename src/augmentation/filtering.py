@@ -6,13 +6,13 @@ parser = argparse.ArgumentParser()
 parser.add_argument(
     "--input_path",
     type=str,
-    default="./citation_info.json",
+    default="./jsons/citation_info.json",
     help="Input file path",
 )
 parser.add_argument(
     "--output_path",
     type=str,
-    default="./filtered_citation_info.json",
+    default="./jsons/filtered_citation_info.json",
     help="Output file path for citation info JSON",
 )
 args = parser.parse_args()
