@@ -77,7 +77,7 @@ if __name__ == "__main__":
 
     from tqdm import tqdm
 
-    with open("src/augmentation/jsons/filtered_citation_info.json") as f:
+    with open("jsons/filtered_citation_info.json") as f:
         data = json.load(f)
     queries = generate_queries(data)
 

@@ -7,7 +7,6 @@ resources:
 image: quay.io/vessl-ai/python:3.10-r18
 
 run:
-  - command: rm -rf /workspace/specter2
   - command: git clone https://github.com/goranikin/snu_retrieval /workspace/augmentation
 
   - command: |2-
@@ -16,6 +15,10 @@ run:
       uv sync
       curl -fsSL https://ollama.com/install.sh | sh
       ollama serve &
+      until curl -s http://localhost:11434 > /dev/null; do
+        echo "Waiting for Ollama server to start..."
+        sleep 2
+      done
       ollama pull qwen3:14b
       sleep 10
       uv run python augmentation.py
