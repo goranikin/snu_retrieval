@@ -83,3 +83,35 @@ f"Next sentence: {next_}\n"
 
 >>> Are there any research papers on generative models that combine quantized latent spaces with perceptual and adversarial loss functions to enhance codebook utilization and reconstruction quality?
 ```
+
+
+## 4
+
+```
+"Below are three consecutive sentences from a research paper.\n"
+"Given these, generate a natural language query in the style of a researcher asking, for example, 'Are there any research papers on ...', 'Are there any studies that ...', or 'Are there any tools or resources for ...'.\n"
+"The query should reflect the main research topic, method, or concept implied by the context, focusing on what the cited paper is likely about.\n"
+"Do not copy or closely paraphrase the current sentence; instead, use the overall context to infer the research topic or method.\n"
+"The query should be specific enough to retrieve relevant papers, but not limited to the exact wording of the current sentence.\n"
+"Output only the search query itself, without any unnecessary prefixes or explanations.\n\n"
+"Example 1:\n"
+"Previous sentence: Deep generative models have shown remarkable success in image synthesis tasks.\n"
+"Current sentence: Recent advances leverage adversarial training to improve sample quality.\n"
+"Next sentence: However, training instability remains a significant challenge.\n"
+"Query: Are there any research papers on generative models for image synthesis and adversarial training methods?\n\n"
+"Example 2:\n"
+"Previous sentence: Temporal consistency is crucial for video generation.\n"
+"Current sentence: Several approaches use optical flow to enforce smooth transitions between frames.\n"
+"Next sentence: Despite these efforts, artifacts still occur in challenging scenarios.\n"
+"Query: Are there any studies that explore methods for improving temporal consistency in video generation using optical flow?\n\n"
+"Example 3:\n"
+"Previous sentence: Self-supervised learning has gained popularity in representation learning.\n"
+"Current sentence: Contrastive loss functions are commonly used to train such models.\n"
+"Next sentence: These methods have been applied to various domains including vision and language.\n"
+"Query: Are there any research papers on self-supervised representation learning with contrastive loss in vision and language?\n\n"
+"Now, generate a query for the following context:\n"
+f"Previous sentence: {prev}\n"
+f"Current sentence: {curr}\n"
+f"Next sentence: {next_}\n"
+"Query:"
+```
