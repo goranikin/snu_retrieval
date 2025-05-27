@@ -4,7 +4,11 @@ import os
 
 from datasets import load_dataset
 from tqdm import tqdm
-from utils import extract_citation_context, find_citation_paper_info
+from utils import (
+    extract_citation_context,
+    extract_content_with_corpusid,
+    find_citation_paper_info,
+)
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
@@ -51,6 +55,40 @@ if __name__ == "__main__":
             real_result_list.append(result[0])
             not_null += 1
 
+    # extracing title and abstract from citation corpus
+    for info in real_result_list:
+        target_paper = extract_content_with_corpusid(
+            corpus_s2orc_data, set([info["citation_corpus_id"]])
+        )[0]
+
+        # Title 추출 시 NoneType 에러 방지
+        title_json = target_paper["content"]["annotations"].get("title")
+        if title_json is not None:
+            try:
+                title_annotation = json.loads(title_json)[0]
+                start, end = title_annotation["start"], title_annotation["end"]
+                title = target_paper["content"]["text"][start:end]
+            except Exception as e:
+                title = None
+        else:
+            title = None
+
+        # Abstract 추출 시 NoneType 에러 방지
+        abstract_json = target_paper["content"]["annotations"].get("abstract")
+        if abstract_json is not None:
+            try:
+                abstract_annotation = json.loads(abstract_json)[0]
+                start, end = abstract_annotation["start"], abstract_annotation["end"]
+                abstract = target_paper["content"]["text"][start:end]
+            except Exception as e:
+                abstract = None
+        else:
+            abstract = None
+
+        info["title"] = title
+        info["abstract"] = abstract
+
+    # extracting citation sentences
     for result in tqdm(real_result_list, desc="Extracting citations context"):
         paper = corpus_s2orc_data[result["index"]]
         citation = paper["content"]["text"][result["start"] : result["end"]]
