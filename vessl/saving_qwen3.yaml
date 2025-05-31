@@ -1,0 +1,22 @@
+name: run_augmentation_with_llm
+
+resources:
+  cluster: snu-eng-dgx
+  preset: a100-half
+
+image: quay.io/vessl-ai/python:3.10-r18
+
+run:
+  - command: git clone https://github.com/goranikin/snu_retrieval /workspace/snu_retrieval
+
+  - command: \
+      pip install --upgrade pip
+      pip install transformers
+      python save_model_to_vesslai.py
+    workdir: /workspace/snu_retrieval/src/utils
+
+export:
+  /output/my_model:
+    model:
+      organization_name: snu-eng-dgx-light
+      model_repository_name: qwen3-14b

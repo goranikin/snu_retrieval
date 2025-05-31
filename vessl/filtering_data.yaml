@@ -1,4 +1,4 @@
-name: litsearch-specter2-finetune
+name: filtering_data
 
 resources:
   cluster: snu-eng-dgx
@@ -12,14 +12,10 @@ run:
       pip install --upgrade pip
       pip install --upgrade uv
       uv sync
-      uv add faiss-gpu
     workdir: /workspace/snu_retrieval
 
-  - command: uv run python train_and_save.py
-    workdir: /workspace/snu_retrieval/src/specter2
+  - command: uv run python filtering.py --input_path /workspace/snu_retrieval/src/data_augmentation/jsons/citation_info.json --output_path /output/filtered_citation_info.json
+    workdir: /workspace/snu_retrieval/src/data_augmentation
 
 export:
-  /export/model:
-    model:
-      organization_name: snu-eng-dgx-light
-      model_repository_name: specter2
+  /output: volume://vessl-storage/

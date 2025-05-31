@@ -1,4 +1,4 @@
-name: save_citation_info
+name: extracting_ctss
 
 resources:
   cluster: snu-eng-dgx
@@ -6,7 +6,7 @@ resources:
 
 image: quay.io/vessl-ai/python:3.10-r18
 run:
-  - command: git clone https://github.com/goranikin/snu_retrieval /workspace/specter2
+  - command: git clone https://github.com/goranikin/snu_retrieval /workspace/snu_retrieval
 
   - command: |2-
       pip install --upgrade pip
@@ -14,8 +14,8 @@ run:
       uv sync
     workdir: /workspace/specter2
 
-  - command: uv run python extracting_sentence.py --output_path /output/citation_info.json
-    workdir: /workspace/specter2/src/augmentation
+  - command: uv run python extracting_ctss.py --output_path /output/extracted_citation_info.json
+    workdir: /workspace/snu_retrieval/src/data_augmentation
 
 export:
   /output: volume://vessl-storage/

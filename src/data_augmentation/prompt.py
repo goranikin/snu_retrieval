@@ -1,11 +1,3 @@
-import re
-
-import requests
-
-OLLAMA_API_URL = "http://localhost:11434/api/generate"
-MODEL = "qwen3:14b"
-
-
 def make_prompt(prev, curr, next_):
     return (
         "Below are three consecutive sentences from a research paper.\n"
@@ -35,58 +27,3 @@ def make_prompt(prev, curr, next_):
         f"Next sentence: {next_}\n"
         "Query:"
     )
-
-
-def query_ollama(prompt):
-    response = requests.post(
-        OLLAMA_API_URL, json={"model": MODEL, "prompt": prompt, "stream": False}
-    )
-    response.raise_for_status()
-    return response.json()["response"].strip()
-
-
-def generate_queries(data):
-    from tqdm import tqdm
-
-    queries = []
-    for item in tqdm(data, desc="Generating LLM queries"):
-        prev = item["prev"]
-        curr = item["curr"]
-        next_ = item["next"]
-        prompt = make_prompt(prev, curr, next_)
-        query = query_ollama(prompt)
-        queries.append(
-            {
-                "index": item["index"],
-                "citation_corpus_id": item["citation_corpus_id"],
-                "query": query,
-            }
-        )
-    return queries
-
-
-def extract_query(llm_response):
-    cleaned = re.sub(r"<think>.*?</think>", "", llm_response, flags=re.DOTALL)
-    cleaned = cleaned.strip()
-    if "\n" in cleaned:
-        cleaned = cleaned.split("\n")[-1].strip()
-    return cleaned
-
-
-if __name__ == "__main__":
-    import json
-
-    from tqdm import tqdm
-
-    with open("jsons/filtered_citation_info.json") as f:
-        data = json.load(f)
-    queries = generate_queries(data)
-
-    query_map = {item["index"]: extract_query(item["query"]) for item in queries}
-    for item in tqdm(data, desc="Adding queries to data"):
-        idx = item["index"]
-        if idx in query_map:
-            item["query"] = query_map[idx]
-
-    with open("/output/filtered_citation_info_with_query.json", "w") as f:
-        json.dump(data, f, ensure_ascii=False, indent=2)
