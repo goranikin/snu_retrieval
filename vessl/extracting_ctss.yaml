@@ -12,7 +12,7 @@ run:
       pip install --upgrade pip
       pip install --upgrade uv
       uv sync
-    workdir: /workspace/specter2
+    workdir: /workspace/snu_retrieval
 
   - command: uv run python extracting_ctss.py --output_path /output/extracted_citation_info.json
     workdir: /workspace/snu_retrieval/src/data_augmentation

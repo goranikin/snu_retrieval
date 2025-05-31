@@ -1,9 +1,9 @@
 import argparse
 
-from postprocess import extract_query
-from query_generator import generate_queries
+from query_generator import query_generator
 from tqdm import tqdm
 
+from data_augmentation.llm import extract_query
 from utils.io_utils import load_json, save_json
 
 if __name__ == "__main__":
@@ -33,7 +33,7 @@ if __name__ == "__main__":
             for key in ["prev", "curr", "next", "title", "abstract"]
         )
     ]
-    queries = generate_queries(data)
+    queries = query_generator(data)
 
     query_map = {item["index"]: extract_query(item["query"]) for item in queries}
     for item in tqdm(data, desc="Adding queries to data"):
