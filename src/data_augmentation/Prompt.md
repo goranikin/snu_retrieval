@@ -84,6 +84,8 @@ f"Next sentence: {next_}\n"
 >>> Are there any research papers on generative models that combine quantized latent spaces with perceptual and adversarial loss functions to enhance codebook utilization and reconstruction quality?
 ```
 
+It performs 0.21 at recall@20 score with BM25. It is pretty lower than original inline-citation rewriting dataset in LitSearch, which shows 0.3999. We need to generate queries more specifically.
+
 
 ## 4
 
@@ -114,4 +116,12 @@ f"Previous sentence: {prev}\n"
 f"Current sentence: {curr}\n"
 f"Next sentence: {next_}\n"
 "Query:"
+
+>>> Are there any research papers on generative models employing vector quantization with codebook optimization and multi-loss training strategies for improved reconstruction quality?
 ```
+
+There are slightly detail words than previous one, however it seems not to be enough.
+
+Accordingly my expectation, The recall@20 score is 0.2229, which is slightly higher than the previous one but isn't enough.
+
+We need to use the information from the title and abstract of paper.

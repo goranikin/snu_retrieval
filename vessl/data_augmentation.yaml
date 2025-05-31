@@ -21,8 +21,8 @@ run:
       done
       ollama pull qwen3:14b
       sleep 10
-      uv run python augmentation.py
-    workdir: /workspace/snu_retrieval/src/augmentation/
+      uv run python main.py --input_path /workspace/snu_retrieval/src/data_augmentation/jsons/citation_info.jsonl --output_path /output/filtered_citation_info_and_queries.jsonl
+    workdir: /workspace/snu_retrieval/src/data_augmentation/
 
 export:
   /output: volume://vessl-storage/
