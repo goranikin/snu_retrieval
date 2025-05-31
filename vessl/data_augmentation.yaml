@@ -21,7 +21,7 @@ run:
       done
       ollama pull qwen3:14b
       sleep 10
-      uv run python main.py --input_path /workspace/snu_retrieval/src/data_augmentation/jsons/citation_info.jsonl --output_path /output/filtered_citation_info_and_queries.jsonl
+      uv run python main.py --input_path /workspace/snu_retrieval/src/data_augmentation/jsons/citation_info.json --output_path /output/filtered_citation_info_and_queries.json
     workdir: /workspace/snu_retrieval/src/data_augmentation/
 
 export:

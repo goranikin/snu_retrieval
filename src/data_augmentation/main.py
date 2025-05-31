@@ -1,9 +1,10 @@
 import argparse
 
-from io_utils import load_json, save_json
 from postprocess import extract_query
 from query_generator import generate_queries
 from tqdm import tqdm
+
+from utils.io_utils import load_json, save_json
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
