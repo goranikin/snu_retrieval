@@ -1,4 +1,4 @@
-name: run_augmentation_with_llm
+name: saving_qwen3_to_vesslai
 
 resources:
   cluster: snu-eng-dgx
@@ -9,9 +9,10 @@ image: quay.io/vessl-ai/python:3.10-r18
 run:
   - command: git clone https://github.com/goranikin/snu_retrieval /workspace/snu_retrieval
 
-  - command: \
+  - command: |
       pip install --upgrade pip
-      pip install transformers
+      pip install --upgrade torch torchvision
+      pip install --upgrade transformers==4.52.4 accelerate
       python save_model_to_vesslai.py
     workdir: /workspace/snu_retrieval/src/utils
 
