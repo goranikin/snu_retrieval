@@ -1,5 +1,5 @@
+from llm import query_ollama
 from prompt import make_prompt
-from ollama import query_ollama
 
 
 def query_generator(data):
