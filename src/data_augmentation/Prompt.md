@@ -212,7 +212,8 @@ f"Title: {title}\n"
 
 The recall@20 score is 0.61 with BM25.
 
-I
+I'm going to revise the prompt slightly to focus on the general context.
+
 
 ## 7
 
@@ -248,4 +249,10 @@ f"Current sentence: {curr}\n"
 f"Next sentence: {next_}\n"
 f"Title: {title}\n"
 "Query:"
+
+>>> Are there any research papers on vector-quantized image modeling with enhanced VQGAN architectures and combined perceptual and adversarial loss strategies?
 ```
+
+recall@20 = 0.48
+
+Ooh! It's the score what I want. :D
