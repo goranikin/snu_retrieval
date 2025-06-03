@@ -1,10 +1,7 @@
 def make_prompt(prev, curr, next_, title):
     return (
-        "Below are three consecutive sentences from a research paper, along with the paper's title and abstract.\n"
-        "Given these, generate a natural language query in the style of a researcher asking, for example, 'Are there any research papers on ...', 'Are there any studies that ...', or 'Are there any tools or resources for ...'.\n"
-        "The query should reflect the main research topic, method, or concept implied by the context, focusing on what the cited paper is likely about.\n"
-        "Do not copy or closely paraphrase the current sentence; instead, use the overall context to infer the research topic or method.\n"
-        "The query should be specific enough to retrieve relevant papers, but not limited to the exact wording of the current sentence.\n"
+        "The query should be broad, abstract, and exploratory, aiming to discover relevant literature based on the overall context, not just the current sentence.\n"
+        "Do not copy or closely paraphrase the current sentence; instead, focus on the general research topic, methods, or concepts implied by the context.\n"
         "Output only the search query itself, without any unnecessary prefixes or explanations.\n\n"
         "Example 1:\n"
         "Previous sentence: Deep generative models have shown remarkable success in image synthesis tasks.\n"
