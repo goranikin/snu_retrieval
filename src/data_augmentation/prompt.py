@@ -1,4 +1,4 @@
-def make_prompt(prev, curr, next_, title, abstract):
+def make_prompt(prev, curr, next_, title):
     return (
         "Below are three consecutive sentences from a research paper, along with the paper's title and abstract.\n"
         "Given these, generate a natural language query in the style of a researcher asking, for example, 'Are there any research papers on ...', 'Are there any studies that ...', or 'Are there any tools or resources for ...'.\n"
@@ -32,6 +32,5 @@ def make_prompt(prev, curr, next_, title, abstract):
         f"Current sentence: {curr}\n"
         f"Next sentence: {next_}\n"
         f"Title: {title}\n"
-        f"Abstract: {abstract}\n"
         "Query:"
     )

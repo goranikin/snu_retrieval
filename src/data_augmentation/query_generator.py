@@ -11,8 +11,7 @@ def query_generator(data):
         curr = item["curr"]
         next_ = item["next"]
         title = item["title"]
-        abstract = item["abstract"]
-        prompt = make_prompt(prev, curr, next_, title, abstract)
+        prompt = make_prompt(prev, curr, next_, title)
         query = query_ollama(prompt)
         queries.append(
             {

@@ -3,6 +3,7 @@ import re
 import torch
 from transformers import AutoModelForCausalLM, AutoTokenizer
 
+# hugginface qwen3가 vessl container image에서 안 돌아감...
 model_name = "Qwen/Qwen3-14B"
 
 tokenizer = AutoTokenizer.from_pretrained(model_name)

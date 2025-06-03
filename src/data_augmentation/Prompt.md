@@ -18,11 +18,6 @@ f"Next sentence: {next_}\n\n"
 "so that the cited paper in the current sentence (i.e., the paper linked by the citation paper id in curr) can be found. "
 "Reflect the context and citation intent of curr as much as possible, and include the paper title, key concepts, methods, techniques, model names, or main claims if relevant. "
 "Output only the search query itself, without any unnecessary prefixes or explanations."
-```
-
-result:
-```
-
 
 >>> ViT-VQGAN factorized L2-normalized codebook reconstruction quality codebook usage improvement
 ```
@@ -45,13 +40,13 @@ f"Next sentence: {next_}\n\n"
 >>> discrete latent representations with vector quantization codebook optimization hybrid loss functions perceptual and adversarial training image video reconstruction generative neural networks
 ```
 
-It doesn't match with LitSearch query data.
+It doesn't match the LitSearch query data.
 
 ## 3
 
-I think it's need to add few shot to generate query which I want.
+I think it's necessary to add a few-shot example to generate queries as I want.
 
-There is no citation sentence data corresponding to the query. Therefore, I generated fake sentences with query data using LLM, GPT-4.1.
+There is no citation sentence data corresponding to the query. Therefore, I generated fake sentences and query data using GPT-4.1.
 
 prompt:
 ```
@@ -84,7 +79,7 @@ f"Next sentence: {next_}\n"
 >>> Are there any research papers on generative models that combine quantized latent spaces with perceptual and adversarial loss functions to enhance codebook utilization and reconstruction quality?
 ```
 
-It performs 0.21 at recall@20 score with BM25. It is pretty lower than original inline-citation rewriting dataset in LitSearch, which shows 0.3999. We need to generate queries more specifically.
+It achieves a recaal@20 score of 0.21 with BM25. This is much lower than the original inline-citation rewriting dataset in LitSearch, which achieves 0.3999. We need to generate more specific queries.
 
 
 ## 4
@@ -120,8 +115,54 @@ f"Next sentence: {next_}\n"
 >>> Are there any research papers on generative models employing vector quantization with codebook optimization and multi-loss training strategies for improved reconstruction quality?
 ```
 
-There are slightly detail words than previous one, however it seems not to be enough.
+There are slightly more detailed words than in the previous one, but it still doesn't seem to be enough.
 
-Accordingly my expectation, The recall@20 score is 0.2229, which is slightly higher than the previous one but isn't enough.
+As expected, the recall@20 score is 0.2229, which is slightly higher than the previous one, but still not enough.
 
-We need to use the information from the title and abstract of paper.
+We need to use the information from the title and abstract of the paper.
+
+## 5
+
+prompt:
+```
+"Below are three consecutive sentences from a research paper, along with the paper's title and abstract.\n"
+"Given these, generate a natural language query in the style of a researcher asking, for example, 'Are there any research papers on ...', 'Are there any studies that ...', or 'Are there any tools or resources for ...'.\n"
+"The query should reflect the main research topic, method, or concept implied by the context, focusing on what the cited paper is likely about.\n"
+"Do not copy or closely paraphrase the current sentence; instead, use the overall context to infer the research topic or method.\n"
+"The query should be specific enough to retrieve relevant papers, but not limited to the exact wording of the current sentence.\n"
+"Output only the search query itself, without any unnecessary prefixes or explanations.\n\n"
+"Example 1:\n"
+"Previous sentence: Deep generative models have shown remarkable success in image synthesis tasks.\n"
+"Current sentence: Recent advances leverage adversarial training to improve sample quality.\n"
+"Next sentence: However, training instability remains a significant challenge.\n"
+"Title: Generative Adversarial Networks for Image Synthesis\n"
+"Abstract: This paper explores the use of generative adversarial networks for high-quality image synthesis, discussing recent advances and challenges in training stability.\n"
+"Query: Are there any research papers on generative models for image synthesis and adversarial training methods?\n\n"
+"Example 2:\n"
+"Previous sentence: Temporal consistency is crucial for video generation.\n"
+"Current sentence: Several approaches use optical flow to enforce smooth transitions between frames.\n"
+"Next sentence: Despite these efforts, artifacts still occur in challenging scenarios.\n"
+"Title: Improving Temporal Consistency in Video Generation\n"
+"Abstract: We propose new methods for enforcing temporal consistency in video generation, focusing on the use of optical flow and addressing common artifacts.\n"
+"Query: Are there any studies that explore methods for improving temporal consistency in video generation using optical flow?\n\n"
+"Example 3:\n"
+"Previous sentence: Self-supervised learning has gained popularity in representation learning.\n"
+"Current sentence: Contrastive loss functions are commonly used to train such models.\n"
+"Next sentence: These methods have been applied to various domains including vision and language.\n"
+"Title: Self-Supervised Representation Learning with Contrastive Loss\n"
+"Abstract: This work surveys self-supervised learning techniques using contrastive loss, with applications in vision and language domains.\n"
+"Query: Are there any research papers on self-supervised representation learning with contrastive loss in vision and language?\n\n"
+"Now, generate a query for the following context:\n"
+f"Previous sentence: {prev}\n"
+f"Current sentence: {curr}\n"
+f"Next sentence: {next_}\n"
+f"Title: {title}\n"
+f"Abstract: {abstract}\n"
+"Query:"s
+
+>>> Are there any research papers on off-policy maximum entropy deep reinforcement learning algorithms with a stochastic actor for continuous control tasks?
+```
+
+Prompt includes title and abstract. However, the queries seems to be too specific.
+
+The recaal@20 score is 0.83 with BM25. Each query is too specific to find the cited paper. (We should aim to achieve a score of around 0.40.)
