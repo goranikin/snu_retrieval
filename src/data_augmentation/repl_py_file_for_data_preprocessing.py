@@ -1,3 +1,5 @@
+# 이 파일은 IDE의 REPL 기능으로 사용하기 위한 파일입니다. ipykernel을 설치한 후 설정한 뒤, jupyter 파일처럼 사용하면 됩니다.
+
 # %%
 from datasets import load_dataset
 
