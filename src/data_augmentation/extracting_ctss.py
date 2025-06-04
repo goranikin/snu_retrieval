@@ -109,7 +109,7 @@ if __name__ == "__main__":
     result_list = []
 
     # 1007 makes 597 data.
-    for i in tqdm(range(1200), desc="Processing citation information"):
+    for i in tqdm(range(3000), desc="Processing citation information"):
         source_corpus_id = corpus_clean_data[i]["corpusid"]
         citation_corpus_ids = corpus_clean_data[i]["citations"]
 
@@ -173,5 +173,14 @@ if __name__ == "__main__":
         prev, curr, next_ = extract_citation_context(snippet, citation)
         result["prev"], result["curr"], result["next"] = prev, curr, next_
 
+    filtered_result_list = [
+        item
+        for item in real_result_list
+        if all(
+            item.get(key) is not None
+            for key in ["prev", "curr", "next", "title", "abstract"]
+        )
+    ]
+
     with open(args.output_path, "w", encoding="utf-8") as f:
-        json.dump(real_result_list, f, ensure_ascii=False, indent=2)
+        json.dump(filtered_result_list, f, ensure_ascii=False, indent=2)

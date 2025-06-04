@@ -12,13 +12,13 @@ if __name__ == "__main__":
     parser.add_argument(
         "--input_path",
         type=str,
-        default="./jsons/extracted_citation_info.json",
+        default="./jsons/citation_info2.json",
         help="Input file path",
     )
     parser.add_argument(
         "--output_path",
         type=str,
-        default="./jsons/filtered_extracted_citation_info_and_query.json",
+        default="./jsons/final_generating_query_data.json",
         help="Output file path for citation info JSON",
     )
     args = parser.parse_args()
