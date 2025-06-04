@@ -27,4 +27,10 @@ dependencies = [
 exclude = ["jupyter"]
 
 [dependency-groups]
-dev = ["jupyter>=1.1.1", "ruff>=0.11.10", "ty>=0.0.1a4", "vessl>=0.1.197"]
+dev = [
+    "ipykernel>=6.29.5",
+    "jupyter>=1.1.1",
+ "ruff>=0.11.10",
+ "ty>=0.0.1a4",
+ "vessl>=0.1.197",
+]

@@ -1,7 +1,6 @@
 import argparse
 import json
 import os
-import re
 
 import nltk
 from datasets import load_dataset
