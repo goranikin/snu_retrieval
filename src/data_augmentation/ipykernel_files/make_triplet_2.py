@@ -74,19 +74,51 @@ for info in citation_info_data:
 with open("./citation_info_with_negatives.json", "w") as f:
     json.dump(filtered_citation_info, f, indent=2)
 # %%
-
+# make pre-triplet with query data
+with open(
+    "./final_generated_query_data.json",
+    "r",
+) as f:
+    generated_query_data = json.load(f)
+# %%
+corpusid2meta = {
+    row["corpusid"]: {"title": row["title"], "abstract": row["abstract"]}
+    for row in corpus_clean_data
+}
 
 # %%
+triplets = []
 
+for item in generated_query_data:
+    query = item["query"]
+    positive = item["citation_corpus_id"]
+    hard_samples = random.sample(item["hard_negative"], 2)
+    easy_samples = random.sample(item["easy_negative"], 3)
+    negatives = hard_samples + easy_samples
+
+    for neg in negatives:
+        # positive/negative의 title/abstract를 찾아서 추가
+        pos_meta = corpusid2meta.get(positive, {"title": "", "abstract": ""})
+        neg_meta = corpusid2meta.get(neg, {"title": "", "abstract": ""})
+
+        triplets.append(
+            {
+                "query": query,
+                "positive_title": pos_meta["title"],
+                "positive_abstract": pos_meta["abstract"],
+                "negative_title": neg_meta["title"],
+                "negative_abstract": neg_meta["abstract"],
+            }
+        )
 
 # %%
-
-
+triplets
 # %%
 
-
+len(triplets)
 # %%
-
+with open("./triplet_data.json", "w") as f:
+    json.dump(triplets, f, indent=2)
 
 # %%
 

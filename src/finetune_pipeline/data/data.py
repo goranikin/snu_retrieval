@@ -14,8 +14,8 @@ class LitSearchTripletDataset(Dataset):
         item = self.data[idx]
         return {
             "query": item["query"],
-            "positive_title": item["positive"]["title"],
-            "positive_abstract": item["positive"]["abstract"],
-            "negative_title": item["negative"]["title"],
-            "negative_abstract": item["negative"]["abstract"],
+            "positive_title": item["positive_title"],
+            "positive_abstract": item["positive_abstract"],
+            "negative_title": item["negative_title"],
+            "negative_abstract": item["negative_abstract"],
         }

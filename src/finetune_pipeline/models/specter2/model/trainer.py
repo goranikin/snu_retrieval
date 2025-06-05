@@ -1,13 +1,14 @@
 import os
 
 import torch
-from loss import TripletMarginLoss
 from torch.optim import AdamW
 from torch.optim.lr_scheduler import OneCycleLR
 from torch.utils.data import DataLoader
 from tqdm import tqdm
 
-from specter2.data.data import LitSearchDataset
+from src.finetune_pipeline.data.data import LitSearchTripletDataset
+
+from .loss import TripletMarginLoss
 
 
 class Specter2Trainer:
@@ -16,6 +17,7 @@ class Specter2Trainer:
         self.model = model_wrapper.model
         self.tokenizer = model_wrapper.tokenizer
         self.device = model_wrapper.device
+        print("Trainer initialized")
 
     def train(
         self,
@@ -30,7 +32,7 @@ class Specter2Trainer:
         weight_decay=0.01,
         warmup_ratio=0.1,
     ):
-        train_dataset = LitSearchDataset(train_data, self.tokenizer)
+        train_dataset = LitSearchTripletDataset(train_data, self.tokenizer)
         train_loader = DataLoader(train_dataset, batch_size=batch_size, shuffle=True)
 
         optimizer = AdamW(
@@ -99,7 +101,7 @@ class Specter2Trainer:
         return self.model
 
     def evaluate(self, val_data, batch_size=8):
-        val_dataset = LitSearchDataset(val_data, self.tokenizer)
+        val_dataset = LitSearchTripletDataset(val_data, self.tokenizer)
         val_loader = DataLoader(val_dataset, batch_size=batch_size)
         self.model.eval()
         triplet_loss = TripletMarginLoss(margin=1.0)
@@ -112,6 +114,7 @@ class Specter2Trainer:
                 neg_title, neg_abstract = self._split_title_abstract(batch["negative"])
                 pos_emb = self.model_wrapper.encode_paper(pos_title, pos_abstract)
                 neg_emb = self.model_wrapper.encode_paper(neg_title, neg_abstract)
+
                 loss = triplet_loss(query_emb, pos_emb, neg_emb)
                 total_loss += loss.item()
 

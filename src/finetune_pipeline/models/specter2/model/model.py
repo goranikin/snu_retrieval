@@ -1,15 +1,20 @@
+import faulthandler
 import os
 
 import faiss
 import torch
 from adapters import AutoAdapterModel
-from retrieval import Retrieval
 from tqdm import tqdm
 from transformers import AutoTokenizer
+
+from .retrieval import Retrieval
+
+faulthandler.enable()
 
 
 class Specter2(Retrieval):
     def __init__(self, base_model_name="allenai/specter2_base", device=None):
+        super().__init__()
         self.keys = []
         self.values = []
         self.index = None
@@ -24,14 +29,19 @@ class Specter2(Retrieval):
                 self.device = torch.device("cpu")
         else:
             self.device = device
-
+        print("Before tokenizer")
         self.tokenizer = AutoTokenizer.from_pretrained(base_model_name)
-        self.model = AutoAdapterModel.from_pretrained("allenai/specter2_base")
+        print("After tokenizer")
+        self.model = AutoAdapterModel.from_pretrained(base_model_name)
+        print("After model")
 
         self.model.load_adapter("allenai/specter2", source="hf", load_as="proximity")
+        print("After Adapter1")
+
         self.model.load_adapter(
             "allenai/specter2_adhoc_query", source="hf", load_as="adhoc_query"
         )
+        print("After Adapter2")
 
         for param in self.model.parameters():
             param.requires_grad = False
@@ -61,6 +71,7 @@ class Specter2(Retrieval):
 
     def _encode_text(self, input_ids, attention_mask, adapter_type="proximity"):
         """
+
         adapter_type: query -> "adhoc_query", paper -> "proximity"
         """
         self.model.set_active_adapters(adapter_type)
