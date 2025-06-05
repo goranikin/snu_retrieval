@@ -107,12 +107,9 @@ def create_kv_pairs(data: List[dict], key: str) -> dict:
 import json
 
 with open(
-    "./jsons/filtered_extracted_citation_info_and_queries_title_2.json", "r"
+    "../jsons/filtered_extracted_citation_info_and_queries_title_2.json", "r"
 ) as f:
     data = json.load(f)
-
-# %%
-data[0]
 
 
 # %%
@@ -163,8 +160,7 @@ from tqdm import tqdm
 
 result_list = []
 
-# 1007 makes 597 data.
-for i in tqdm(range(3000), desc="Processing citation information"):
+for i in tqdm(range(6000), desc="Processing citation information"):
     source_corpus_id = corpus_clean_data[i]["corpusid"]
     citation_corpus_ids = corpus_clean_data[i]["citations"]
 
@@ -222,10 +218,6 @@ def flatten_citation_data(nested_list):
 new_data = flatten_citation_data(real_result_list)
 
 # %%
-with open("./jsons_for_triplet/citation_corpus_info_index.json", "w") as f:
-    json.dump(new_data, f, indent=2)
-
-# %%
 citation_id_to_citations = {}
 
 for i in range(len(corpus_s2orc_data)):
@@ -257,21 +249,12 @@ for item in new_data:
         cited_ids = citation_id_to_citations.get(citation_id, [])
         citation_info["cited_by_citation"] = cited_ids
 
-# %%
-with open(
-    "./jsons_for_triplet/citation_corpus_info_index_with_cited_index.json", "w"
-) as f:
-    json.dump(new_data, f, indent=2)
 
 # %%
 for item in new_data:
     source_id = item["source_corpus_id"]
     cited_ids = citation_id_to_citations.get(source_id, [])
     item["cited_ids"] = cited_ids
-with open(
-    "./jsons_for_triplet/citation_corpus_info_index_with_cited_index.json", "w"
-) as f:
-    json.dump(new_data, f, indent=2)
 # %%
 # This is a test code for checking data is correct
 for idx, item in enumerate(new_data):
@@ -289,7 +272,7 @@ for idx, item in enumerate(new_data):
         citation_info["hard_negative"] = hard_negative
 # %%
 with open(
-    "./jsons_for_triplet/citation_corpus_info_index_with_cited_index_and_hard_negative.json",
+    "./citation_corpus_info_index_with_cited_index_and_hard_negative.json",
     "w",
 ) as f:
     json.dump(new_data, f, indent=2)

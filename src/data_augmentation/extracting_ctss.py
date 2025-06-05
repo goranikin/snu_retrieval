@@ -109,7 +109,7 @@ if __name__ == "__main__":
     result_list = []
 
     # 1007 makes 597 data.
-    for i in tqdm(range(3000), desc="Processing citation information"):
+    for i in tqdm(range(6000), desc="Processing citation information"):
         source_corpus_id = corpus_clean_data[i]["corpusid"]
         citation_corpus_ids = corpus_clean_data[i]["citations"]
 

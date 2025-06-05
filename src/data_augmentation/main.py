@@ -12,7 +12,7 @@ if __name__ == "__main__":
     parser.add_argument(
         "--input_path",
         type=str,
-        default="./jsons/citation_info2.json",
+        default="./jsons/citation_info_with_negatives.json",
         help="Input file path",
     )
     parser.add_argument(
