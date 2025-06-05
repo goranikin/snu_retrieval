@@ -23,7 +23,7 @@ run:
       sleep 10
       # 이거 없으면 module import 실패함!
       export PYTHONPATH=/workspace/snu_retrieval/src:$PYTHONPATH
-      uv run python main.py --input_path /workspace/snu_retrieval/src/data_augmentation/jsons/citation_info2.json --output_path /output/final_generating_query_data.json
+      uv run python main.py --input_path /workspace/snu_retrieval/src/data_augmentation/jsons/citation_info_with_negatives.json --output_path /output/final_generating_query_data.json
     workdir: /workspace/snu_retrieval/src/data_augmentation/
 
 export:
