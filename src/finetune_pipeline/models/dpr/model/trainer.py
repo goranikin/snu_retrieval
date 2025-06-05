@@ -1,27 +1,27 @@
 import os
 
 import torch
-from loss import TripletMarginLoss
 from torch.optim import AdamW
 from torch.optim.lr_scheduler import OneCycleLR
 from torch.utils.data import DataLoader
 from tqdm import tqdm
 
-from specter2.data.data import LitSearchDataset
+from finetune_pipeline.data.data import LitSearchTripletDataset
+from finetune_pipeline.models.dpr.model.loss import TripletMarginLoss
 
 
-class SPECTER2Trainer:
-    def __init__(self, custom_model, tokenizer, device):
-        self.custom_model = custom_model  # SPECTER2QueryAdapterFinetuner
-        self.model = custom_model.model  # HuggingFace AutoAdapterModel
-        self.tokenizer = tokenizer
-        self.device = device
+class DprTrainer:
+    def __init__(self, model_wrapper):
+        self.model_wrapper = model_wrapper
+        self.query_encoder = model_wrapper.query_encoder
+        self.paper_encoder = model_wrapper.paper_encoder
+        self.device = model_wrapper.device
 
     def train(
         self,
         train_data,
         val_data=None,
-        output_dir="./specter2_adhoc_query_finetuned",
+        output_dir="./dpr_finetuned",
         lr=2e-5,
         batch_size=8,
         epochs=3,
@@ -30,11 +30,13 @@ class SPECTER2Trainer:
         weight_decay=0.01,
         warmup_ratio=0.1,
     ):
-        train_dataset = LitSearchDataset(train_data, self.tokenizer)
+        train_dataset = LitSearchTripletDataset(
+            train_data, self.model_wrapper.query_tokenizer
+        )
         train_loader = DataLoader(train_dataset, batch_size=batch_size, shuffle=True)
 
         optimizer = AdamW(
-            [p for p in self.model.parameters() if p.requires_grad],
+            [p for p in self.model_wrapper.parameters() if p.requires_grad],
             lr=lr,
             weight_decay=weight_decay,
         )
@@ -53,32 +55,25 @@ class SPECTER2Trainer:
         best_val_loss = float("inf")
 
         for epoch in range(epochs):
-            self.model.train()
+            self.query_encoder.train()
+            self.paper_encoder.train()
             epoch_loss = 0.0
             progress_bar = tqdm(train_loader, desc=f"Epoch {epoch + 1}/{epochs}")
 
             for batch in progress_bar:
-                query_emb = self.custom_model.encode_text(
-                    batch["query"]["input_ids"],
-                    batch["query"]["attention_mask"],
-                    adapter_type="adhoc_query",
+                query_emb = self.model_wrapper.encode_query(batch["query"])
+                pos_emb = self.model_wrapper.encode_paper(
+                    batch["positive_title"], batch["positive_abstract"]
                 )
-                pos_emb = self.custom_model.encode_text(
-                    batch["positive"]["input_ids"],
-                    batch["positive"]["attention_mask"],
-                    adapter_type="proximity",
-                )
-                neg_emb = self.custom_model.encode_text(
-                    batch["negative"]["input_ids"],
-                    batch["negative"]["attention_mask"],
-                    adapter_type="proximity",
+                neg_emb = self.model_wrapper.encode_paper(
+                    batch["negative_title"], batch["negative_abstract"]
                 )
 
                 loss = triplet_loss(query_emb, pos_emb, neg_emb)
                 optimizer.zero_grad()
                 loss.backward()
                 torch.nn.utils.clip_grad_norm_(
-                    [p for p in self.model.parameters() if p.requires_grad], 1.0
+                    [p for p in self.model_wrapper.parameters() if p.requires_grad], 1.0
                 )
                 optimizer.step()
                 scheduler.step()
@@ -96,7 +91,8 @@ class SPECTER2Trainer:
                         self.save_model(output_dir)
                         print(f"Model saved to {output_dir} (val_loss: {val_loss:.4f})")
 
-                    self.model.train()
+                    self.query_encoder.train()
+                    self.paper_encoder.train()
 
             avg_epoch_loss = epoch_loss / len(train_loader)
             print(f"Epoch {epoch + 1}/{epochs} - Avg Loss: {avg_epoch_loss:.4f}")
@@ -104,31 +100,26 @@ class SPECTER2Trainer:
         if val_data is None or epochs % eval_steps != 0:
             self.save_model(output_dir)
 
-        return self.model
+        return self.model_wrapper
 
     def evaluate(self, val_data, batch_size=8):
-        val_dataset = LitSearchDataset(val_data, self.tokenizer)
+        val_dataset = LitSearchTripletDataset(
+            val_data, self.model_wrapper.query_tokenizer
+        )
         val_loader = DataLoader(val_dataset, batch_size=batch_size)
-        self.model.eval()
+        self.query_encoder.eval()
+        self.paper_encoder.eval()
         triplet_loss = TripletMarginLoss(margin=1.0)
         total_loss = 0.0
 
         with torch.no_grad():
             for batch in val_loader:
-                query_emb = self.custom_model.encode_text(
-                    batch["query"]["input_ids"],
-                    batch["query"]["attention_mask"],
-                    adapter_type="adhoc_query",
+                query_emb = self.model_wrapper.encode_query(batch["query"])
+                pos_emb = self.model_wrapper.encode_paper(
+                    batch["positive_title"], batch["positive_abstract"]
                 )
-                pos_emb = self.custom_model.encode_text(
-                    batch["positive"]["input_ids"],
-                    batch["positive"]["attention_mask"],
-                    adapter_type="proximity",
-                )
-                neg_emb = self.custom_model.encode_text(
-                    batch["negative"]["input_ids"],
-                    batch["negative"]["attention_mask"],
-                    adapter_type="proximity",
+                neg_emb = self.model_wrapper.encode_paper(
+                    batch["negative_title"], batch["negative_abstract"]
                 )
                 loss = triplet_loss(query_emb, pos_emb, neg_emb)
                 total_loss += loss.item()
@@ -137,6 +128,5 @@ class SPECTER2Trainer:
 
     def save_model(self, output_dir):
         os.makedirs(output_dir, exist_ok=True)
-        self.custom_model.save_model(output_dir)
-        self.tokenizer.save_pretrained(output_dir)
-        print(f"어댑터가 {output_dir}에 저장되었습니다.")
+        self.model_wrapper.save_model(output_dir)
+        print(f"DPR 모델이 {output_dir}에 저장되었습니다.")

@@ -10,12 +10,12 @@ from tqdm import tqdm
 from specter2.data.data import LitSearchDataset
 
 
-class SPECTER2Trainer:
-    def __init__(self, custom_model, tokenizer, device):
-        self.custom_model = custom_model  # SPECTER2QueryAdapterFinetuner
-        self.model = custom_model.model  # HuggingFace AutoAdapterModel
-        self.tokenizer = tokenizer
-        self.device = device
+class Specter2Trainer:
+    def __init__(self, model_wrapper):
+        self.model_wrapper = model_wrapper
+        self.model = model_wrapper.model
+        self.tokenizer = model_wrapper.tokenizer
+        self.device = model_wrapper.device
 
     def train(
         self,
@@ -58,20 +58,12 @@ class SPECTER2Trainer:
             progress_bar = tqdm(train_loader, desc=f"Epoch {epoch + 1}/{epochs}")
 
             for batch in progress_bar:
-                query_emb = self.custom_model.encode_text(
-                    batch["query"]["input_ids"],
-                    batch["query"]["attention_mask"],
-                    adapter_type="adhoc_query",
+                query_emb = self.model_wrapper.encode_query(batch["query"])
+                pos_emb = self.model_wrapper.encode_paper(
+                    batch["positive_title"], batch["positive_abstract"]
                 )
-                pos_emb = self.custom_model.encode_text(
-                    batch["positive"]["input_ids"],
-                    batch["positive"]["attention_mask"],
-                    adapter_type="proximity",
-                )
-                neg_emb = self.custom_model.encode_text(
-                    batch["negative"]["input_ids"],
-                    batch["negative"]["attention_mask"],
-                    adapter_type="proximity",
+                neg_emb = self.model_wrapper.encode_paper(
+                    batch["negative_title"], batch["negative_abstract"]
                 )
 
                 loss = triplet_loss(query_emb, pos_emb, neg_emb)
@@ -115,21 +107,11 @@ class SPECTER2Trainer:
 
         with torch.no_grad():
             for batch in val_loader:
-                query_emb = self.custom_model.encode_text(
-                    batch["query"]["input_ids"],
-                    batch["query"]["attention_mask"],
-                    adapter_type="adhoc_query",
-                )
-                pos_emb = self.custom_model.encode_text(
-                    batch["positive"]["input_ids"],
-                    batch["positive"]["attention_mask"],
-                    adapter_type="proximity",
-                )
-                neg_emb = self.custom_model.encode_text(
-                    batch["negative"]["input_ids"],
-                    batch["negative"]["attention_mask"],
-                    adapter_type="proximity",
-                )
+                query_emb = self.model_wrapper.encode_query(batch["query"])
+                pos_title, pos_abstract = self._split_title_abstract(batch["positive"])
+                neg_title, neg_abstract = self._split_title_abstract(batch["negative"])
+                pos_emb = self.model_wrapper.encode_paper(pos_title, pos_abstract)
+                neg_emb = self.model_wrapper.encode_paper(neg_title, neg_abstract)
                 loss = triplet_loss(query_emb, pos_emb, neg_emb)
                 total_loss += loss.item()
 
@@ -137,6 +119,6 @@ class SPECTER2Trainer:
 
     def save_model(self, output_dir):
         os.makedirs(output_dir, exist_ok=True)
-        self.custom_model.save_model(output_dir)
+        self.model_wrapper.save_model(output_dir)
         self.tokenizer.save_pretrained(output_dir)
         print(f"어댑터가 {output_dir}에 저장되었습니다.")
