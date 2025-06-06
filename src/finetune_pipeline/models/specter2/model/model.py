@@ -78,9 +78,23 @@ class Specter2(Retrieval):
         embeddings = outputs.last_hidden_state[:, 0, :]
         return embeddings
 
-    def encode_query(self, query_text: str):
+    def encode_query(self, query_text: str, no_grad=True):
         self.model.eval()
-        with torch.no_grad():
+        if no_grad:
+            with torch.no_grad():
+                tokens = self.tokenizer(
+                    query_text,
+                    padding="max_length",
+                    truncation=True,
+                    max_length=512,
+                    return_tensors="pt",
+                )
+                return self._encode_text(
+                    tokens["input_ids"],
+                    tokens["attention_mask"],
+                    adapter_type="adhoc_query",
+                )
+        else:
             tokens = self.tokenizer(
                 query_text,
                 padding="max_length",
@@ -94,10 +108,28 @@ class Specter2(Retrieval):
                 adapter_type="adhoc_query",
             )
 
-    def encode_paper(self, title: str, abstract: str):
+    def encode_paper(self, title: str, abstract: str, no_grad=True):
         self.model.eval()
-        with torch.no_grad():
-            text = title + self.tokenizer.sep_token + abstract
+        sep_token = self.tokenizer.sep_token
+        if isinstance(title, list) and isinstance(abstract, list):
+            text = [t + sep_token + a for t, a in zip(title, abstract)]
+        else:
+            text = title + sep_token + abstract
+        if no_grad:
+            with torch.no_grad():
+                tokens = self.tokenizer(
+                    text,
+                    padding="max_length",
+                    truncation=True,
+                    max_length=512,
+                    return_tensors="pt",
+                )
+                return self._encode_text(
+                    tokens["input_ids"],
+                    tokens["attention_mask"],
+                    adapter_type="proximity",
+                )
+        else:
             tokens = self.tokenizer(
                 text,
                 padding="max_length",

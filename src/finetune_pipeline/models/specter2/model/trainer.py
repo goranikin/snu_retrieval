@@ -25,7 +25,7 @@ class Specter2Trainer:
         val_data=None,
         output_dir="./specter2_adhoc_query_finetuned",
         lr=2e-5,
-        batch_size=8,
+        batch_size=2,
         epochs=3,
         margin=1.0,
         eval_steps=100,
@@ -60,12 +60,14 @@ class Specter2Trainer:
             progress_bar = tqdm(train_loader, desc=f"Epoch {epoch + 1}/{epochs}")
 
             for batch in progress_bar:
-                query_emb = self.model_wrapper.encode_query(batch["query"])
+                query_emb = self.model_wrapper.encode_query(
+                    batch["query"], no_grad=False
+                )
                 pos_emb = self.model_wrapper.encode_paper(
-                    batch["positive_title"], batch["positive_abstract"]
+                    batch["positive_title"], batch["positive_abstract"], no_grad=False
                 )
                 neg_emb = self.model_wrapper.encode_paper(
-                    batch["negative_title"], batch["negative_abstract"]
+                    batch["negative_title"], batch["negative_abstract"], no_grad=False
                 )
 
                 loss = triplet_loss(query_emb, pos_emb, neg_emb)
@@ -79,6 +81,9 @@ class Specter2Trainer:
 
                 epoch_loss += loss.item()
                 progress_bar.set_postfix({"loss": loss.item()})
+
+                del query_emb, pos_emb, neg_emb, loss
+                torch.cuda.empty_cache()
 
                 global_step += 1
                 if val_data is not None and global_step % eval_steps == 0:
@@ -109,11 +114,15 @@ class Specter2Trainer:
 
         with torch.no_grad():
             for batch in val_loader:
-                query_emb = self.model_wrapper.encode_query(batch["query"])
-                pos_title, pos_abstract = self._split_title_abstract(batch["positive"])
-                neg_title, neg_abstract = self._split_title_abstract(batch["negative"])
-                pos_emb = self.model_wrapper.encode_paper(pos_title, pos_abstract)
-                neg_emb = self.model_wrapper.encode_paper(neg_title, neg_abstract)
+                query_emb = self.model_wrapper.encode_query(
+                    batch["query"], no_grad=False
+                )
+                pos_emb = self.model_wrapper.encode_paper(
+                    batch["positive_title"], batch["positive_abstract"], no_grad=False
+                )
+                neg_emb = self.model_wrapper.encode_paper(
+                    batch["negative_title"], batch["negative_abstract"], no_grad=False
+                )
 
                 loss = triplet_loss(query_emb, pos_emb, neg_emb)
                 total_loss += loss.item()
