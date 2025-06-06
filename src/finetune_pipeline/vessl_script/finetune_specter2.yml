@@ -16,7 +16,7 @@ run:
     workdir: /workspace/snu_retrieval
 
   - command: uv run python -m src.finetune_pipeline.models.specter2.train_and_save
-    workdir: /workspace/snu_retrieval/src/finetune_pipeline/models/specter2
+    workdir: /workspace/snu_retrieval
 
 export:
   /export/model:

@@ -29,19 +29,14 @@ class Specter2(Retrieval):
                 self.device = torch.device("cpu")
         else:
             self.device = device
-        print("Before tokenizer")
         self.tokenizer = AutoTokenizer.from_pretrained(base_model_name)
-        print("After tokenizer")
         self.model = AutoAdapterModel.from_pretrained(base_model_name)
-        print("After model")
 
         self.model.load_adapter("allenai/specter2", source="hf", load_as="proximity")
-        print("After Adapter1")
 
         self.model.load_adapter(
             "allenai/specter2_adhoc_query", source="hf", load_as="adhoc_query"
         )
-        print("After Adapter2")
 
         for param in self.model.parameters():
             param.requires_grad = False

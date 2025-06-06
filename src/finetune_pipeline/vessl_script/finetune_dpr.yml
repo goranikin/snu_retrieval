@@ -1,4 +1,4 @@
-name: dpr-finetune
+name: finetune-dpr
 
 resources:
   cluster: snu-eng-dgx
@@ -15,8 +15,8 @@ run:
       uv add faiss-gpu
     workdir: /workspace/snu_retrieval
 
-  - command: uv run python train_and_save.py
-    workdir: /workspace/snu_retrieval/src/finetune_pipeline/models/dpr
+  - command: uv run python -m src.finetune_pipeline.models.dpr.train_and_save
+    workdir: /workspace/snu_retrieval
 
 export:
   /export/model:

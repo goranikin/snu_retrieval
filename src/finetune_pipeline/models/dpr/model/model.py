@@ -40,10 +40,10 @@ class Dpr(Retrieval):
             paper_model_name
         )
         self.query_encoder = DPRQuestionEncoder.from_pretrained(query_model_name).to(
-            device
+            self.device
         )
         self.paper_encoder = DPRContextEncoder.from_pretrained(paper_model_name).to(
-            device
+            self.device
         )
 
     def parameters(self):
