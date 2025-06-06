@@ -10,7 +10,7 @@ from transformers import (
     DPRQuestionEncoderTokenizer,
 )
 
-from finetune_pipeline.models.dpr.model.retrieval import Retrieval
+from .retrieval import Retrieval
 
 
 class Dpr(Retrieval):

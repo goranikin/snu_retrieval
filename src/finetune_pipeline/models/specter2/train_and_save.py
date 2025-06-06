@@ -46,7 +46,7 @@ def main():
     trainer.train(
         train_data=train_data,
         val_data=val_data,
-        output_dir="./finetune_model",
+        output_dir="/output",
         lr=2e-4,
         batch_size=256,
         epochs=5,

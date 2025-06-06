@@ -6,8 +6,9 @@ from torch.optim.lr_scheduler import OneCycleLR
 from torch.utils.data import DataLoader
 from tqdm import tqdm
 
-from finetune_pipeline.data.data import LitSearchTripletDataset
-from finetune_pipeline.models.dpr.model.loss import TripletMarginLoss
+from src.finetune_pipeline.data.data import LitSearchTripletDataset
+
+from .loss import TripletMarginLoss
 
 
 class DprTrainer:
