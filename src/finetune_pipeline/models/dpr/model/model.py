@@ -99,7 +99,13 @@ class Dpr(Retrieval):
     def encode_paper(self, title: str, abstract: str):
         self.paper_encoder.eval()
         with torch.no_grad():
-            text = title + self.paper_tokenizer.sep_token + abstract
+            if isinstance(title, list) and isinstance(abstract, list):
+                text = [
+                    t + self.paper_tokenizer.sep_token + a
+                    for t, a in zip(title, abstract)
+                ]
+            else:
+                text = title + self.paper_tokenizer.sep_token + abstract
             tokens = self.paper_tokenizer(
                 text,
                 padding="max_length",
