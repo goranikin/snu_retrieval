@@ -10,7 +10,7 @@ from src.specter2.model import SPECTER2QueryAdapterFinetuner
 from src.specter2.trainer import SPECTER2Trainer
 
 
-@hydra.main(config_path="../../conf", config_name="config", version_base=None)
+@hydra.main(config_path="../../conf", config_name="specter2_config", version_base=None)
 def main(cfg: DictConfig):
     datasets_dir = cfg.train.datasets_dir
 

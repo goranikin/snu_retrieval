@@ -1,0 +1,42 @@
+# SPLADE Training Configuration
+
+# Model Configuration
+model_type_or_dir: "naver/splade-v3"
+model_type_or_dir_q: "naver/splade-v3"
+out_dim: 30522 # Vocabulary size for DistilBERT
+tokenizer_type: "naver/splade-v3"
+max_length: 512
+shared_weights: false # Whether query and document encoders share weights
+output: "splade" # Output type: splade, splade++, etc.
+matching_type: "splade" # Model type: splade, splade_doc, etc.
+
+# Regularization Parameters
+lambda_q: 0.1 # Query regularization weight
+lambda_d: 0.1 # Document regularization weight
+flops_loss: "FLOPS" # Type of FLOPS loss
+alpha: 0.3 # Scheduler parameter
+total_steps: 50000
+
+kl_weight: 1.0
+margin_loss_weight: 0.05
+margin: 1.0
+
+# Training Parameters
+train_batch_size: 8
+eval_batch_size: 32
+epochs: 10
+lr: 5e-5 # Learning rate
+warmup_steps: 1000
+warmup_ratio: 0.1
+weight_decay: 0.01
+seed: 42
+checkpoint_dir: "./splade_v3_litsearch_checkpoint" # Directory for saving checkpoints
+gradient_accumulation_steps: 1 # Gradient accumulation steps
+fp16: true # Whether to use half-precision
+train_monitoring_freq: 100 # Frequency of training monitoring
+record_frequency: 1000 # Frequency of recording metrics
+
+# Output Configuration
+output_dir: "./splade_v3_litsearch"
+logging_steps: 100
+eval_steps: 50

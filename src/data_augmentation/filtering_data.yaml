@@ -1,0 +1,21 @@
+name: filtering_data
+
+resources:
+  cluster: snu-eng-dgx
+  preset: a100-half
+
+image: quay.io/vessl-ai/python:3.10-r18
+run:
+  - command: git clone https://github.com/goranikin/snu_retrieval /workspace/snu_retrieval
+
+  - command: |2-
+      pip install --upgrade pip
+      pip install --upgrade uv
+      uv sync
+    workdir: /workspace/snu_retrieval
+
+  - command: uv run python filtering.py --input_path /workspace/snu_retrieval/src/data_augmentation/jsons/citation_info.json --output_path /output/filtered_citation_info.json
+    workdir: /workspace/snu_retrieval/src/data_augmentation
+
+export:
+  /output: volume://vessl-storage/
