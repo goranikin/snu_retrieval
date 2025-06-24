@@ -43,6 +43,7 @@ See each model’s directory for detailed configuration and usage.
 
 - Values in parentheses () indicate pre-fine-tuning scores.  
 - Values outside parentheses indicate post-fine-tuning scores.
+- DPR have to use after fine-tuning (by paper).
 
 ### spec0 Recall@20
 
@@ -50,7 +51,7 @@ See each model’s directory for detailed configuration and usage.
 |-----------|------------------|------------------|-----------------|
 | DPR       | 0.1467           | 0.1143           | 0.1394          |
 | SPECTER2  | 0.5142 (0.3814)  | 0.4571 (0.2000)  | 0.5013 (0.3404) |
-| SPLADE    | 0.3783           | 0.4714           | 0.3994          |
+| SPLADE    | 0.3783 (0.5333)  | 0.4714 (0.6285)  | 0.4228 (0.5788) |
 
 ---
 
@@ -60,14 +61,9 @@ See each model’s directory for detailed configuration and usage.
 |-----------|------------------|------------------|------------------|------------------|------------------|
 | DPR       | 0.0671           | 0.1169           | 0.0190           | 0.0948           | 0.1063           |
 | SPECTER2  | 0.4113 (0.3377)  | 0.6255 (0.4502)  | 0.4882 (0.3460)  | 0.6730 (0.5118)  | 0.6482 (0.3416)  |
-| SPLADE    | 0.2532           | 0.4156           | 0.3886           | 0.5118           | 0.4615           |
+| SPLADE    | 0.2532 (0.5108)  | 0.4156 (0.6450)  | 0.3886 (0.6493)  | 0.5118 (0.7725)  | 0.4616 (0.7059)  |
 
 ---
-
-
----
-
-
 
 
 ## References
