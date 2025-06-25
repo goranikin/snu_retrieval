@@ -132,7 +132,7 @@ class Specter2Base(torch.nn.Module, ABC):
             text,
             padding="max_length",
             truncation=True,
-            max_length=self.tokenizer.model_max_length,
+            max_length=512,
             return_tensors="pt",
         )
         outputs = self.model(**tokens)
