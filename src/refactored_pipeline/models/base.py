@@ -104,7 +104,7 @@ It use just one body model for both documents and queries so that it have to avo
 
 
 class Specter2Base(torch.nn.Module, ABC):
-    def __init__(self, model_name_or_dir: str, freeze_body_and_docs=True):
+    def __init__(self, model_name_or_dir: str, freeze_body_and_docs=True, device=None):
         super().__init__()
         self.model = AutoAdapterModel.from_pretrained(model_name_or_dir)
         self.tokenizer = AutoTokenizer.from_pretrained(model_name_or_dir)
@@ -112,8 +112,16 @@ class Specter2Base(torch.nn.Module, ABC):
         self.model.load_adapter(
             "allenai/specter2_adhoc_query", source="hf", load_as="query"
         )
-
         self.model.set_active_adapters("paper")
+
+        if device is None:
+            if torch.cuda.is_available():
+                self.device = torch.device("cuda")
+            elif hasattr(torch.backends, "mps") and torch.backends.mps.is_available():
+                self.device = torch.device("mps")
+            else:
+                self.device = torch.device("cpu")
+        self.model.to(self.device)
 
         if freeze_body_and_docs:  # Freeze the body model
             for param in self.model.parameters():
@@ -137,6 +145,7 @@ class Specter2Base(torch.nn.Module, ABC):
             max_length=512,
             return_tensors="pt",
         )
+        tokens = {k: v.to(self.device) for k, v in tokens.items()}
         outputs = self.model(**tokens)
         return outputs.last_hidden_state[:, 0, :]  # CLS token representation
 

@@ -7,19 +7,12 @@ from refactored_pipeline.models.base import Specter2Encoder
 
 
 class FaissIndexer:
-    def __init__(self, encoder: Specter2Encoder, device=None):
+    def __init__(self, encoder: Specter2Encoder):
         """
         encoder: Specter2Encoder
         device: "cuda" or "mps" or "cpu"
         """
         self.encoder = encoder
-        if device is None:
-            if torch.cuda.is_available():
-                self.device = torch.device("cuda")
-            elif hasattr(torch.backends, "mps") and torch.backends.mps.is_available():
-                self.device = torch.device("mps")
-            else:
-                self.device = torch.device("cpu")
 
     def build_faiss_index(
         self,
