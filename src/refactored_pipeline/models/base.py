@@ -108,17 +108,19 @@ class Specter2Base(torch.nn.Module, ABC):
         super().__init__()
         self.model = AutoAdapterModel.from_pretrained(model_name_or_dir)
         self.tokenizer = AutoTokenizer.from_pretrained(model_name_or_dir)
-        self.model.load_adapter("allenai/specter2", source="hf", load_as="proximity")
+        self.model.load_adapter("allenai/specter2", source="hf", load_as="paper")
         self.model.load_adapter(
-            "allenai/specter2_adhoc_query", source="hf", load_as="adhoc_query"
+            "allenai/specter2_adhoc_query", source="hf", load_as="query"
         )
+
+        self.model.set_active_adapters("paper")
 
         if freeze_body_and_docs:  # Freeze the body model
             for param in self.model.parameters():
                 param.requires_grad = False
 
             for name, param in self.model.named_parameters():
-                if "adapters.adhoc_query" in name:
+                if "adapters.query" in name:
                     param.requires_grad = True
 
     @abstractmethod
@@ -126,7 +128,7 @@ class Specter2Base(torch.nn.Module, ABC):
         pass
 
     def _encode(self, text, is_q) -> torch.Tensor:
-        adapter_type = "adhoc_query" if is_q else "proximity"
+        adapter_type = "query" if is_q else "paper"
         self.model.set_active_adapters(adapter_type)
         tokens = self.tokenizer(
             text,
