@@ -55,14 +55,14 @@ def mean_recall(dataset, k):
 
 
 def indexing(encoder, documents, faiss_index_path):
-    from tasks.evaluator import FaissIndexer
+    from refactored_pipeline.tasks.evaluator import FaissIndexer
 
     indexer = FaissIndexer(encoder=encoder)
     indexer.build_faiss_index(documents, faiss_index_path)
 
 
 def retreival(encoder, query_data, corpusid_list_path, faiss_index_path, top_k=20):
-    from tasks.evaluator import FaissRetriever
+    from refactored_pipeline.tasks.evaluator import FaissRetriever
 
     retriever = FaissRetriever(encoder=encoder, index_path=faiss_index_path)
     corpusid_list = np.load(corpusid_list_path).tolist()
@@ -76,7 +76,7 @@ def retreival(encoder, query_data, corpusid_list_path, faiss_index_path, top_k=2
 def main():
     from datasets import load_dataset
 
-    from .models.base import Specter2Encoder
+    from refactored_pipeline.models.base import Specter2Encoder
 
     corpusid_list_path = "./corpusid_list.npy"
     faiss_index_path = "./LitSearch_index.faiss"

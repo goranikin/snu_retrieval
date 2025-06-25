@@ -1,0 +1,26 @@
+# uv run vessl run create -f src/refactored_pipeline/vessl/baseline.yml
+name: LitSearch Baseline of SPECTER2
+
+resources:
+  cluster: snu-eng-dgx
+  preset: a100-half
+
+image: quay.io/vessl-ai/python:3.10-r18
+run:
+  - command: git clone https://github.com/goranikin/snu_retrieval /workspace/snu_retrieval
+
+  - command: |2-
+      pip install --upgrade pip
+      pip install --upgrade uv
+      uv sync
+      uv add faiss-gpu
+    workdir: /workspace/snu_retrieval
+
+  - command: uv run python -m refactored_pipeline.baseline
+    workdir: /workspace/snu_retrieval/src
+
+export:
+  /export/model:
+    model:
+      organization_name: snu-eng-dgx-light
+      model_repository_name: specter2
