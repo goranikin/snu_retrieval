@@ -1,4 +1,5 @@
 import numpy as np
+from tqdm import tqdm  # 추가
 
 
 # utilities for processing LitSearch dataset
@@ -34,7 +35,11 @@ def retrieve_for_dataset(retriever, query_datasets, corpusid_list, k=20):
         example["retrieved"] = retrieved_corpusids
         return example
 
-    return query_datasets.map(retrieval_fn)
+    items = list(query_datasets)
+    results = []
+    for example in tqdm(items, desc="Retrieval"):
+        results.append(retrieval_fn(example))
+    return results
 
 
 def calculate_recall(corpusids: list, retrieved: list, k: int):

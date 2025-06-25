@@ -1,6 +1,7 @@
 import faiss
 import numpy as np
 import torch
+from tqdm import tqdm
 
 from refactored_pipeline.models.base import Specter2Encoder
 
@@ -24,20 +25,23 @@ class FaissIndexer:
         self,
         documents: list[str],
         index_path: str,
+        batch_size: int = 32,
     ) -> tuple[faiss.IndexFlatIP, np.ndarray]:
         """
         documents: list of document texts
         return: (faiss index, document embeddings)
         """
-
+        all_embs = []
         with torch.no_grad():
-            doc_embs = self.encoder.encode(documents, is_q=False)
-            if isinstance(doc_embs, tuple):
-                doc_embs = doc_embs[0]
-            doc_embs = doc_embs.cpu().detach().numpy()
+            for i in tqdm(range(0, len(documents), batch_size), desc="Indexing"):
+                batch = documents[i : i + batch_size]
+                doc_embs = self.encoder.encode(batch, is_q=False)
+                if isinstance(doc_embs, tuple):
+                    doc_embs = doc_embs[0]
+                all_embs.append(doc_embs.cpu().detach().numpy())
+        doc_embs = np.concatenate(all_embs, axis=0)
 
         faiss.normalize_L2(doc_embs)
-
         dim = doc_embs.shape[1]
         index = faiss.IndexFlatIP(dim)
         index.add(doc_embs)
