@@ -108,7 +108,7 @@ class BaseTrainer:
         t0 = time.time()
         self.model.train()
         ###################################
-        self.train_iterations()
+        self.train_epochs()
         # this method defines how to train the model
         # (e.g. different behavior when we train for a given number of epochs vs a given number of iterations)
         ###################################
