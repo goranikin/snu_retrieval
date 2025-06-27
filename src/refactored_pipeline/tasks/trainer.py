@@ -14,7 +14,7 @@ from refactored_pipeline.utils.retrieval_utils import mean_recall, retrieve_for_
 class Specter2Trainer(BaseTrainer):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.writer.add_text("model_name", self.model_name)
+        self.writer.add_text("model_name", self.config["model_name_or_dir"])
         self.nb_epochs = self.config["epochs"]
         assert "record_frequency" in self.config, (
             "need to provide record frequency for this trainer"
