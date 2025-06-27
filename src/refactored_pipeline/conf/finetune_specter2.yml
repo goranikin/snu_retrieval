@@ -1,0 +1,55 @@
+# Specter2 Finetuning Configuration (Hydra YAML)
+# Place this file at: snu_retrieval/src/refactored_pipeline/conf/finetune_specter2.yml
+
+defaults:
+  # You can add more defaults here if you modularize configs
+  # - _self_
+
+# =========================
+# Model & Tokenizer
+# =========================
+model_name_or_dir: "allenai/specter2_base"
+freeze_body_and_docs: true
+
+# =========================
+# Training Hyperparameters
+# =========================
+lr: 2e-4
+batch_size: 16
+epochs: 5
+margin: 1.0
+eval_steps: 50
+weight_decay: 0.01
+warmup_ratio: 0.1
+gradient_accumulation_steps: 8
+fp16: false
+
+# =========================
+# Data Paths
+# =========================
+train_data_path: "refactored_pipeline/datasets/triplet_data.json"
+corpusid_list_path: "refactored_pipeline/datasets/corpusid_list.npy"
+litsearch_dataset_path: "princeton-nlp/LitSearch"
+
+# =========================
+# Checkpoint & Logging
+# =========================
+checkpoint_dir: "checkpoints/specter2_finetune"
+overwrite_final: true
+record_frequency: 50
+
+# =========================
+# FAISS Indexing for Recall Validation
+# =========================
+faiss_index_path: "checkpoints/specter2_finetune/faiss_index.faiss"
+
+# =========================
+# Retrieval/Validation (optional, for recall@k etc.)
+# =========================
+validation_metrics: ["recall"]
+recall_k: 20
+
+# =========================
+# Miscellaneous
+# =========================
+seed: 42

@@ -1,0 +1,22 @@
+name: litsearch-specter2-finetune
+
+resources:
+  cluster: snu-eng-dgx
+  preset: a100-half
+
+image: quay.io/vessl-ai/python:3.10-r18
+run:
+  - command: git clone https://github.com/goranikin/snu_retrieval /workspace/snu_retrieval
+
+  - command: |2-
+      pip install --upgrade pip
+      pip install --upgrade uv
+      uv sync
+      uv add faiss-gpu
+    workdir: /workspace/snu_retrieval
+
+  - command: uv run python -m refactored_pipeline.finetune
+    workdir: /workspace/snu_retrieval/src
+
+export:
+  /checkpoints: volume://vessl-storage/

@@ -1,62 +1,7 @@
 import numpy as np
-from tqdm import tqdm  # 추가
 
-
-# utilities for processing LitSearch dataset
-def get_clean_corpusid(item: dict) -> int:
-    return item["corpusid"]
-
-
-def get_clean_title(item: dict) -> str:
-    return item["title"]
-
-
-def get_clean_abstract(item: dict) -> str:
-    return item["abstract"]
-
-
-def get_clean_title_abstract(item: dict) -> str:
-    title = get_clean_title(item)
-    abstract = get_clean_abstract(item)
-    return f"{title} [SEP] {abstract}"
-
-
-def create_kv_pairs(data) -> dict:
-    kv_pairs = {
-        get_clean_title_abstract(record): get_clean_corpusid(record) for record in data
-    }
-    return kv_pairs
-
-
-def retrieve_for_dataset(retriever, query_datasets, corpusid_list, k=20):
-    def retrieval_fn(example):
-        retrieved_indices, _ = retriever.retrieve([example["query"]], top_k=k)
-        retrieved_corpusids = [corpusid_list[i] for i in retrieved_indices]
-        example["retrieved"] = retrieved_corpusids
-        return example
-
-    items = list(query_datasets)
-    results = []
-    for example in tqdm(items, desc="Retrieval"):
-        results.append(retrieval_fn(example))
-    return results
-
-
-def calculate_recall(corpusids: list, retrieved: list, k: int):
-    top_k = retrieved[:k]
-    intersection = set(corpusids) & set(top_k)
-    return len(intersection) / len(corpusids) if corpusids else 0.0
-
-
-def mean_recall(dataset, k):
-    recalls = [
-        calculate_recall(example["corpusids"], example["retrieved"], k)
-        for example in dataset
-    ]
-    return np.mean(recalls) if recalls else 0.0
-
-
-##########
+from refactored_pipeline.utils.data_processing_utils import create_kv_pairs
+from refactored_pipeline.utils.retrieval_utils import mean_recall, retrieve_for_dataset
 
 
 def indexing(encoder, documents, faiss_index_path):
@@ -73,9 +18,6 @@ def retreival(encoder, query_data, corpusid_list_path, faiss_index_path, top_k=2
     corpusid_list = np.load(corpusid_list_path).tolist()
 
     return retrieve_for_dataset(retriever, query_data, corpusid_list, k=top_k)
-
-
-##########
 
 
 def main():

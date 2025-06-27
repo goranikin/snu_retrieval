@@ -18,9 +18,5 @@ run:
 
   - command: uv run python -m refactored_pipeline.baseline
     workdir: /workspace/snu_retrieval/src
-
-export:
-  /export/model:
-    model:
-      organization_name: snu-eng-dgx-light
-      model_repository_name: specter2
+# TODO: export Faiss Index
+# export:
