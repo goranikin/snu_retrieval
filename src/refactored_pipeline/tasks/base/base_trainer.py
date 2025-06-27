@@ -145,7 +145,8 @@ class BaseTrainer:
                 os.path.join(self.checkpoint_dir, "model_ckpt/model_last.tar")
             ):
                 last_config = torch.load(
-                    os.path.join(self.checkpoint_dir, "model_ckpt/model_last.tar")
+                    os.path.join(self.checkpoint_dir, "model_ckpt/model_last.tar"),
+                    weights_only=False,
                 )
                 step_last_config = last_config["step"]
                 os.rename(
