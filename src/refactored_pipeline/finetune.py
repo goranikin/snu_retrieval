@@ -17,7 +17,7 @@ from refactored_pipeline.utils.data_processing_utils import create_kv_pairs
 
 
 @hydra.main(
-    config_path="./conf",
+    config_path="refactored_pipeline/conf",
     config_name="finetune_specter2",
     version_base=None,
 )
