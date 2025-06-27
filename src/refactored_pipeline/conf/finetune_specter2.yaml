@@ -2,8 +2,7 @@
 # Place this file at: snu_retrieval/src/refactored_pipeline/conf/finetune_specter2.yml
 
 defaults:
-  # You can add more defaults here if you modularize configs
-  # - _self_
+  - _self_
 
 # =========================
 # Model & Tokenizer
