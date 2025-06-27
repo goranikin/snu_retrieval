@@ -16,7 +16,7 @@ freeze_body_and_docs: true
 # =========================
 lr: 2e-4
 batch_size: 16
-epochs: 5
+epochs: 20
 margin: 1.0
 eval_steps: 50
 weight_decay: 0.01
