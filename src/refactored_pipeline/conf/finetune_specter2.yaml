@@ -33,14 +33,14 @@ litsearch_dataset_path: "princeton-nlp/LitSearch"
 # =========================
 # Checkpoint & Logging
 # =========================
-checkpoint_dir: "checkpoints/specter2_finetune"
+checkpoint_dir: "/checkpoints/specter2_finetune"
 overwrite_final: true
 record_frequency: 50
 
 # =========================
 # FAISS Indexing for Recall Validation
 # =========================
-faiss_index_path: "checkpoints/specter2_finetune/faiss_index.faiss"
+faiss_index_path: "/checkpoints/specter2_finetune/faiss_index.faiss"
 
 # =========================
 # Retrieval/Validation (optional, for recall@k etc.)
